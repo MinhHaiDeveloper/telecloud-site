@@ -78,6 +78,40 @@
   }, { threshold: .4 });
   stories.forEach(s => playIo.observe(s));
 
+  // ---- download buttons: newest pre-release (Beta) and newest release (Release) from GitHub
+  const REPO = 'MinhHaiDeveloper/telecloud';
+  const fmtSize = (b) => `${Math.round(b / 1048576)} MB`;
+  const fmtDate = (d) => new Date(d).toLocaleDateString('en', { year: 'numeric', month: 'short', day: 'numeric' });
+  const fillCard = (card, rel) => {
+    const btn = card.querySelector('.dl-btn');
+    const meta = card.querySelector('.dl-meta');
+    const exe = rel && rel.assets.find(a => /\.exe$/i.test(a.name));
+    if (!exe) return;
+    const v = rel.tag_name.replace(/^v/, '');
+    btn.href = exe.browser_download_url;
+    btn.removeAttribute('aria-disabled');
+    btn.textContent = `Download v${v}`;
+    meta.innerHTML = '';
+    meta.append(`${fmtSize(exe.size)} · ${fmtDate(rel.published_at)} · `);
+    const notes = Object.assign(document.createElement('a'), { href: rel.html_url, textContent: 'Release notes', target: '_blank', rel: 'noopener' });
+    meta.append(notes);
+  };
+  fetch(`https://api.github.com/repos/${REPO}/releases?per_page=30`, { headers: { Accept: 'application/vnd.github+json' } })
+    .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then(list => {
+      const live = list.filter(r => !r.draft && r.assets.some(a => /\.exe$/i.test(a.name)));
+      fillCard(document.querySelector('[data-channel="beta"]'), live.find(r => r.prerelease));
+      fillCard(document.querySelector('[data-channel="release"]'), live.find(r => !r.prerelease));
+    })
+    .catch(() => {
+      // GitHub unreachable or rate-limited: send people to the Releases page instead of a dead button
+      document.querySelectorAll('.dl-btn').forEach(btn => {
+        btn.href = `https://github.com/${REPO}/releases`;
+        btn.removeAttribute('aria-disabled');
+        btn.textContent = 'See releases on GitHub';
+      });
+    });
+
   // ---- live EQ: peaking filters you can drag, drawn with the same RBJ maths the app uses
   const svg = document.getElementById('eq-svg');
   const W = 640, H = 300, L = 34, R = 10, T = 12, B = 26;
