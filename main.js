@@ -96,10 +96,21 @@
     const notes = Object.assign(document.createElement('a'), { href: rel.html_url, textContent: 'Release notes', target: '_blank', rel: 'noopener' });
     meta.append(notes);
   };
+  // v1.0.0-beta.10 is newer than beta.9, and v1.0.0 is newer than all its betas
+  const versionOf = (tag) => {
+    const m = /^v?(\d+)\.(\d+)\.(\d+)(?:-[a-z]+\.?(\d+))?/i.exec(tag || '');
+    return m ? [+m[1], +m[2], +m[3], m[4] === undefined ? Infinity : +m[4]] : [0, 0, 0, 0];
+  };
+  const newestFirst = (a, b) => {
+    const x = versionOf(a.tag_name), y = versionOf(b.tag_name);
+    for (let i = 0; i < 4; i++) if (x[i] !== y[i]) return y[i] - x[i];
+    return 0;
+  };
   fetch(`https://api.github.com/repos/${REPO}/releases?per_page=30`, { headers: { Accept: 'application/vnd.github+json' } })
     .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
     .then(list => {
-      const live = list.filter(r => !r.draft && r.assets.some(a => /\.exe$/i.test(a.name)));
+      // GitHub orders releases by their tag's commit date, so compare the version numbers instead
+      const live = list.filter(r => !r.draft && r.assets.some(a => /\.exe$/i.test(a.name))).sort(newestFirst);
       fillCard(document.querySelector('[data-channel="beta"]'), live.find(r => r.prerelease));
       fillCard(document.querySelector('[data-channel="release"]'), live.find(r => !r.prerelease));
     })
