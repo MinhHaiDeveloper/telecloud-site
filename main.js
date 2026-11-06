@@ -82,11 +82,37 @@
   const REPO = 'MinhHaiDeveloper/telecloud';
   const fmtSize = (b) => `${Math.round(b / 1048576)} MB`;
   const fmtDate = (d) => new Date(d).toLocaleDateString('en', { year: 'numeric', month: 'short', day: 'numeric' });
+  // TeleCloud is for Windows: a phone gets the link to take to a computer, not a 141 MB installer.
+  // Judged by the device, not the screen width, so a narrow window on a PC still downloads.
+  const onPhone = () => navigator.userAgentData?.mobile === true
+    || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const SITE = `${location.origin}/#download`;
+  const fillPhoneCard = (card, rel, exe) => {
+    const btn = card.querySelector('.dl-btn');
+    const meta = card.querySelector('.dl-meta');
+    const label = 'Copy the link for your computer';
+    btn.href = '#download';
+    btn.removeAttribute('aria-disabled');
+    btn.textContent = label;
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      let copied = false;
+      try { await navigator.clipboard.writeText(SITE); copied = true; } catch { /* not allowed here */ }
+      btn.textContent = copied ? 'Link copied' : SITE.replace(/^https?:\/\//, '').replace(/\/#download$/, '');
+      if (copied) setTimeout(() => { btn.textContent = label; }, 2500);
+    });
+    meta.innerHTML = '';
+    const note = Object.assign(document.createElement('span'), { className: 'dl-note', textContent: 'TeleCloud is for Windows. Open this page on your computer to download it.' });
+    const anyway = Object.assign(document.createElement('a'), { href: exe.browser_download_url, textContent: `Download anyway (${fmtSize(exe.size)})` });
+    meta.append(note, anyway);
+  };
   const fillCard = (card, rel) => {
     const btn = card.querySelector('.dl-btn');
     const meta = card.querySelector('.dl-meta');
     const exe = rel && rel.assets.find(a => /\.exe$/i.test(a.name));
     if (!exe) return;
+    if (onPhone()) { fillPhoneCard(card, rel, exe); return; }
     const v = rel.tag_name.replace(/^v/, '');
     btn.href = exe.browser_download_url;
     btn.removeAttribute('aria-disabled');

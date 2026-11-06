@@ -357,3 +357,6 @@ td.us.y { color: var(--accent); }
 .m-ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); margin-bottom: 8px; }
 .m-ico svg { width: 21px; height: 21px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @media (max-width: 900px) { .more-grid { grid-template-columns: 1fr; } .more { margin: 90px auto; } }
+
+/* Download on a phone: what to do instead */
+.dl-note { display: block; margin-bottom: 8px; color: var(--text); font-size: 14px; line-height: 1.45; }
