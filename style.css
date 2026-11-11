@@ -356,6 +356,9 @@ td.us.y { color: var(--accent); }
 .more-card p { color: var(--text-2); font-size: 14.5px; }
 .m-ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); margin-bottom: 8px; }
 .m-ico svg { width: 21px; height: 21px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+/* MQA in the app's violet, like its badge */
+.m-ico.mqa { background: rgba(180, 140, 255, .14); }
+.m-ico.mqa svg { stroke: #b48cff; stroke-width: 2.4; }
 @media (max-width: 900px) { .more-grid { grid-template-columns: 1fr; } .more { margin: 90px auto; } }
 
 /* Download on a phone: what to do instead */
