@@ -15,8 +15,9 @@
   const nav = document.querySelector('.nav');
   const heroShot = document.querySelector('.hero-shot');
   const stories = [...document.querySelectorAll('.story')];
+  // the beta page has no gallery and no EQ: every part below is optional
   const gallery = document.querySelector('.gallery');
-  const track = gallery.querySelector('.gallery-track');
+  const track = gallery && gallery.querySelector('.gallery-track');
   const links = [...document.querySelectorAll('.nav-links a')];
   const sections = links.map(a => document.querySelector(a.getAttribute('href')));
 
@@ -28,6 +29,7 @@
   };
 
   const measureGallery = () => {
+    if (!gallery) return;
     const shift = Math.max(0, track.scrollWidth - innerWidth);
     gallery.style.setProperty('--shift', `${shift}px`);
   };
@@ -49,8 +51,10 @@
         const n = Number(s.dataset.steps);
         setStep(s, Math.min(n - 1, Math.floor(p * n * 1.0001)));
       });
-      const gr = gallery.getBoundingClientRect();
-      gallery.style.setProperty('--p', clamp(-gr.top / (gr.height - vh)));
+      if (gallery) {
+        const gr = gallery.getBoundingClientRect();
+        gallery.style.setProperty('--p', clamp(-gr.top / (gr.height - vh)));
+      }
     }
 
     let current = -1;
@@ -71,8 +75,8 @@
     entries.forEach(e => {
       const s = e.target;
       clearInterval(timers.get(s));
-      // the details list shows every item at once on a phone: nothing to play
-      if (s.classList.contains('details')) return;
+      // these show every step at once on a phone: nothing to play
+      if (s.matches('.details, .remote, .fold')) return;
       if (!small() || !e.isIntersecting || reduce) { if (small() && reduce) setStep(s, Number(s.dataset.steps) - 1); return; }
       let i = 0;
       setStep(s, 0);
@@ -90,6 +94,16 @@
       const i = Number(btn.closest('[data-s]').dataset.s);
       const top = story.getBoundingClientRect().top + scrollY;
       scrollTo({ top: top + ((i + .5) / n) * (story.offsetHeight - innerHeight), behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+
+  // ---- Release | Beta: the highlight slides over before the other page opens
+  document.querySelectorAll('.channel a:not(.on)').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || reduce) return;
+      e.preventDefault();
+      a.closest('.channel').classList.add('leaving');
+      setTimeout(() => { location.href = a.href; }, 280);
     });
   });
 
@@ -166,6 +180,7 @@
 
   // ---- live EQ: peaking filters you can drag, drawn with the same RBJ maths the app uses
   const svg = document.getElementById('eq-svg');
+  if (!svg) return;
   const W = 640, H = 300, L = 34, R = 10, T = 12, B = 26;
   const FMIN = 20, FMAX = 20000, DB = 12, FS = 48000;
   const x = f => L + (Math.log10(f / FMIN) / Math.log10(FMAX / FMIN)) * (W - L - R);
