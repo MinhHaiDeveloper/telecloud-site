@@ -24,6 +24,7 @@
     if (story.dataset.step === String(step)) return;
     story.dataset.step = step;
     story.querySelectorAll('.sp-steps li').forEach(li => li.classList.toggle('lit', Number(li.dataset.i) <= step));
+    story.querySelectorAll('[data-s]').forEach(el => el.classList.toggle('on', Number(el.dataset.s) === step));
   };
 
   const measureGallery = () => {
@@ -70,6 +71,8 @@
     entries.forEach(e => {
       const s = e.target;
       clearInterval(timers.get(s));
+      // the details list shows every item at once on a phone: nothing to play
+      if (s.classList.contains('details')) return;
       if (!small() || !e.isIntersecting || reduce) { if (small() && reduce) setStep(s, Number(s.dataset.steps) - 1); return; }
       let i = 0;
       setStep(s, 0);
@@ -77,6 +80,18 @@
     });
   }, { threshold: .4 });
   stories.forEach(s => playIo.observe(s));
+
+  // details: a click on an item scrolls to its step
+  document.querySelectorAll('.details .d-item').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (small()) return;
+      const story = btn.closest('.story');
+      const n = Number(story.dataset.steps);
+      const i = Number(btn.closest('[data-s]').dataset.s);
+      const top = story.getBoundingClientRect().top + scrollY;
+      scrollTo({ top: top + ((i + .5) / n) * (story.offsetHeight - innerHeight), behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
 
   // ---- download buttons: newest pre-release (Beta) and newest release (Release) from GitHub
   const REPO = 'MinhHaiDeveloper/telecloud';

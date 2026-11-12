@@ -244,22 +244,82 @@
       </div>
     </section>
 
-    <!-- More -->
-    <section class="more" id="more">
-      <div class="center reveal">
-        <p class="eyebrow">And there's more</p>
-        <h2>The details that make it yours.</h2>
-      </div>
-      <div class="more-grid">
-        <article class="card more-card reveal"><div class="m-ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg></div><h3>Tag editor</h3><p>Fix titles, artists, albums and disc numbers for one track or a whole album at once. Backed-up files follow.</p></article>
-        <article class="card more-card reveal"><div class="m-ico"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 16l2 2 3-4"/></svg></div><h3>Select many, act once</h3><p><kbd>Ctrl</kbd>/<kbd>Shift</kbd>+click and <kbd>Ctrl+A</kbd> in every list: queue, favourite, back up, tag or remove together.</p></article>
-        <article class="card more-card reveal"><div class="m-ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M8 20V4M12 20v-7M16 20V8M20 20v-4"/></svg></div><h3>Spectrum check</h3><p>See the whole file's frequencies and spot upsampled or lossy-sourced "hi-res", with a clear explanation of each verdict.</p></article>
-        <article class="card more-card reveal"><div class="m-ico mqa"><svg viewBox="0 0 24 24"><path d="M1.6 17v-10l3 5.4 3-5.4v10"/><circle cx="12.3" cy="12" r="3.6"/><path d="M13.9 14.7l2 2.3M17.2 17l2.65-10 2.65 10M18.3 14h3.1"/></svg></div><h3>MQA, called out</h3><p>TeleCloud reads the audio itself and finds MQA even when the tags say nothing. It gets a badge and its own filter, and plays as the plain PCM it is. Nothing is unfolded or dressed up as hi-res.</p></article>
-        <article class="card more-card reveal"><div class="m-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></div><h3>Artist pictures</h3><p>Pick one from Last.fm, Deezer, Apple Music, MusicBrainz or YouTube. It goes into the tags, and animated GIFs come back with your backup.</p></article>
-        <article class="card more-card reveal"><div class="m-ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 4v16"/></svg></div><h3>Albums, discs, links</h3><p>Multi-disc albums split by disc. Any artist or album name opens its page, from anywhere in the app.</p></article>
-        <article class="card more-card reveal"><div class="m-ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Cover-only mode</h3><p>One key hides everything but the artwork, for when the music is the only thing on screen.</p></article>
-        <article class="card more-card reveal"><div class="m-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.2 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5z"/></svg></div><h3>Discord status</h3><p>Show what you're playing, with the album cover and a small picture of the artist. While TeleCloud is open with nothing playing, it shows your last track.</p></article>
-        <article class="card more-card reveal"><div class="m-ico"><svg viewBox="0 0 24 24"><path d="M5 19c9 0 14-5 14-14C10 5 5 10 5 19z"/><path d="M5 19l8-8"/></svg></div><h3>Light on your PC</h3><p>Under 2% of the CPU while it plays, on our test PC. Low memory mode trims it further, and the window can wait in the tray while the music goes on.</p></article>
+    <!-- More: one detail at a time, as you scroll -->
+    <section class="story details" id="more" data-scroll="details" data-steps="9">
+      <div class="story-sticky">
+        <div class="story-copy">
+          <p class="eyebrow">And there's more</p>
+          <h2 class="d-title">The details that make it yours.</h2>
+          <ol class="d-list">
+          <li data-s="0">
+            <button type="button" class="d-item" aria-label="Tag editor"><span class="m-ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/></svg></span><span class="d-text"><b>Tag editor</b><span class="d-desc"><span>Fix titles, artists, albums and disc numbers for one track or a whole album at once. Backed-up files follow.</span></span></span></button>
+            <figure class="d-mobile"><img src="assets/details/tags.webp" alt="The tag editor with three tracks of an album" loading="lazy"></figure>
+          </li>
+          <li data-s="1">
+            <button type="button" class="d-item" aria-label="Select many, act once"><span class="m-ico"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 16l2 2 3-4"/></svg></span><span class="d-text"><b>Select many, act once</b><span class="d-desc"><span><kbd>Ctrl</kbd>/<kbd>Shift</kbd>+click and <kbd>Ctrl+A</kbd> in every list: queue, favourite, back up, tag or remove together.</span></span></span></button>
+            <figure class="d-mobile"><img src="assets/details/select.webp" alt="Three tracks selected, with the selection bar" loading="lazy"></figure>
+          </li>
+          <li data-s="2">
+            <button type="button" class="d-item" aria-label="Spectrum check"><span class="m-ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M8 20V4M12 20v-7M16 20V8M20 20v-4"/></svg></span><span class="d-text"><b>Spectrum check</b><span class="d-desc"><span>See the whole file's frequencies and spot upsampled or lossy-sourced "hi-res", with a clear explanation of each verdict.</span></span></span></button>
+            <figure class="d-mobile"><img src="assets/details/spectrum.webp" alt="The spectrum of a FLAC file, judged genuinely lossless" loading="lazy"></figure>
+          </li>
+          <li data-s="3">
+            <button type="button" class="d-item" aria-label="MQA, called out"><span class="m-ico mqa"><svg viewBox="0 0 24 24"><path d="M1.6 17v-10l3 5.4 3-5.4v10"/><circle cx="12.3" cy="12" r="3.6"/><path d="M13.9 14.7l2 2.3M17.2 17l2.65-10 2.65 10M18.3 14h3.1"/></svg></span><span class="d-text"><b>MQA, called out</b><span class="d-desc"><span>TeleCloud reads the audio itself and finds MQA even when the tags say nothing. It gets a badge and its own filter, and plays as the plain PCM it is. Nothing is unfolded or dressed up as hi-res.</span></span></span></button>
+            <figure class="d-mobile"><img src="assets/details/mqa.webp" alt="The library filtered to MQA, with MQA and MQA Studio badges" loading="lazy"></figure>
+          </li>
+          <li data-s="4">
+            <button type="button" class="d-item" aria-label="Artist pictures"><span class="m-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span><span class="d-text"><b>Artist pictures</b><span class="d-desc"><span>Pick one from Last.fm, Deezer, Apple Music, MusicBrainz or YouTube. It goes into the tags, and animated GIFs come back with your backup.</span></span></span></button>
+            <figure class="d-mobile"><img src="assets/details/artist.webp" alt="An artist page with the artist's picture" loading="lazy"></figure>
+          </li>
+          <li data-s="5">
+            <button type="button" class="d-item" aria-label="Albums, discs, links"><span class="m-ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 4v16"/></svg></span><span class="d-text"><b>Albums, discs, links</b><span class="d-desc"><span>Multi-disc albums split by disc. Any artist or album name opens its page, from anywhere in the app.</span></span></span></button>
+            <figure class="d-mobile"><img src="assets/details/discs.webp" alt="An album split into Disc 1 and Disc 2" loading="lazy"></figure>
+          </li>
+          <li data-s="6">
+            <button type="button" class="d-item" aria-label="Cover-only mode"><span class="m-ico"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="d-text"><b>Cover-only mode</b><span class="d-desc"><span>One key hides everything but the artwork, for when the music is the only thing on screen.</span></span></span></button>
+            <figure class="d-mobile"><img src="assets/details/coveronly.webp" alt="Full screen with only the album cover" loading="lazy"><span class="d-key"><kbd>H</kbd> hides everything else</span></figure>
+          </li>
+          <li data-s="7">
+            <button type="button" class="d-item" aria-label="Discord status"><span class="m-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.2 7.5L3 21l2-5.6A8.5 8.5 0 1 1 21 11.5z"/></svg></span><span class="d-text"><b>Discord status</b><span class="d-desc"><span>Show what you're playing, with the album cover and a small picture of the artist. While TeleCloud is open with nothing playing, it shows your last track.</span></span></span></button>
+            <figure class="d-mobile"><div class="dc-card" aria-label="A profile showing TeleCloud as the music playing">
+              <div class="dc-head">Listening to TeleCloud</div>
+              <div class="dc-body">
+                <div class="dc-art"><img src="assets/details/cover-amber.webp" alt="" width="160" height="160" loading="lazy"><img class="dc-small" src="assets/details/artist-atlas.webp" alt="" width="96" height="96" loading="lazy"></div>
+                <div class="dc-text"><b>Burning Alone</b><span>by Atlas Collective</span><span>on Amber Echoes</span>
+                  <div class="dc-bar"><i></i></div><div class="dc-times mono"><span>1:24</span><span>3:32</span></div>
+                </div>
+              </div>
+              <span class="dc-btn">Get TeleCloud</span>
+            </div></figure>
+          </li>
+          <li data-s="8">
+            <button type="button" class="d-item" aria-label="Light on your PC"><span class="m-ico"><svg viewBox="0 0 24 24"><path d="M5 19c9 0 14-5 14-14C10 5 5 10 5 19z"/><path d="M5 19l8-8"/></svg></span><span class="d-text"><b>Light on your PC</b><span class="d-desc"><span>Under 2% of the CPU while it plays, on our test PC. Low memory mode trims it further, and the window can wait in the tray while the music goes on.</span></span></span></button>
+            <figure class="d-mobile"><img src="assets/details/light.webp" alt="Performance settings: low memory mode and keep running in the tray" loading="lazy"><span class="d-cpu float"><i></i><b class="mono">1.6%</b> CPU while playing</span></figure>
+          </li>
+          </ol>
+        </div>
+        <div class="story-visual">
+          <div class="d-stage">
+          <figure data-s="0"><img src="assets/details/tags.webp" alt="The tag editor with three tracks of an album" loading="lazy"></figure>
+          <figure data-s="1"><img src="assets/details/select.webp" alt="Three tracks selected, with the selection bar" loading="lazy"></figure>
+          <figure data-s="2"><img src="assets/details/spectrum.webp" alt="The spectrum of a FLAC file, judged genuinely lossless" loading="lazy"></figure>
+          <figure data-s="3"><img src="assets/details/mqa.webp" alt="The library filtered to MQA, with MQA and MQA Studio badges" loading="lazy"></figure>
+          <figure data-s="4"><img src="assets/details/artist.webp" alt="An artist page with the artist's picture" loading="lazy"></figure>
+          <figure data-s="5"><img src="assets/details/discs.webp" alt="An album split into Disc 1 and Disc 2" loading="lazy"></figure>
+          <figure data-s="6"><img src="assets/details/coveronly.webp" alt="Full screen with only the album cover" loading="lazy"><span class="d-key"><kbd>H</kbd> hides everything else</span></figure>
+          <figure data-s="7"><div class="dc-card" aria-label="A profile showing TeleCloud as the music playing">
+              <div class="dc-head">Listening to TeleCloud</div>
+              <div class="dc-body">
+                <div class="dc-art"><img src="assets/details/cover-amber.webp" alt="" width="160" height="160" loading="lazy"><img class="dc-small" src="assets/details/artist-atlas.webp" alt="" width="96" height="96" loading="lazy"></div>
+                <div class="dc-text"><b>Burning Alone</b><span>by Atlas Collective</span><span>on Amber Echoes</span>
+                  <div class="dc-bar"><i></i></div><div class="dc-times mono"><span>1:24</span><span>3:32</span></div>
+                </div>
+              </div>
+              <span class="dc-btn">Get TeleCloud</span>
+            </div></figure>
+          <figure data-s="8"><img src="assets/details/light.webp" alt="Performance settings: low memory mode and keep running in the tray" loading="lazy"><span class="d-cpu float"><i></i><b class="mono">1.6%</b> CPU while playing</span></figure>
+          </div>
+        </div>
       </div>
     </section>
 
