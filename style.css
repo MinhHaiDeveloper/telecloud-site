@@ -444,15 +444,14 @@ td.us.y { color: var(--accent); }
 .beta-tag { font-style: normal; display: inline-block; margin-left: 2px; padding: 2px 6px; border-radius: 6px; font-size: 10px; font-weight: 800; letter-spacing: .6px; color: #fff; background: linear-gradient(135deg, #2DD4BF, #3B82F6 55%, #7C3AED); vertical-align: 2px; }
 
 /* Release | Beta: which page this is, a click away from the other */
-.channel { position: relative; display: inline-flex; padding: 3px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); flex-shrink: 0; }
-.channel a { position: relative; z-index: 1; padding: 5px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: var(--text-2); transition: color .2s; }
+/* two halves of the same width, so the highlight always sits right on its word */
+.channel { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 3px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); flex-shrink: 0; }
+.channel a { position: relative; z-index: 1; padding: 5px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: var(--text-2); text-align: center; white-space: nowrap; transition: color .25s; }
 .channel a:hover { color: var(--text); }
 .channel a.on { color: #fff; }
-.channel::before { content: ''; position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px); border-radius: 999px; background: var(--brand); box-shadow: 0 4px 12px var(--glow-shadow); transition: transform .45s var(--spring); }
-[data-channel="beta"] .channel::before { transform: translateX(100%); }
-.channel a { min-width: 64px; text-align: center; }
-.channel.leaving::before { transform: translateX(100%); }
-[data-channel="beta"] .channel.leaving::before { transform: none; }
+/* the app's stretchy highlight: the leading edge gets there first, the trailing edge a beat later */
+.channel .ind { position: absolute; top: 3px; bottom: 3px; left: 3px; right: 50%; border-radius: 999px; background: var(--brand); box-shadow: 0 4px 12px var(--glow-shadow); pointer-events: none; }
+[data-channel="beta"] .channel .ind { left: 50%; right: 3px; }
 
 /* devices on the beta page */
 .phone { position: relative; width: min(300px, 70vw, 100%); aspect-ratio: 390 / 844; padding: 9px; border-radius: 44px; background: #0d0d10; border: 1px solid var(--border-2); box-shadow: var(--shadow), 0 0 90px var(--accent-soft); }
@@ -486,7 +485,7 @@ td.us.y { color: var(--accent); }
 .hero-pair .hero-phone .phone::before { top: 12px; width: 52px; height: 6px; margin-left: -26px; }
 
 @media (max-width: 900px) {
-  .channel a { padding: 5px 10px; min-width: 0; }
+  .channel a { padding: 5px 11px; }
   .r-stage { display: none; }
   .r-mobile { display: grid; place-items: center; margin-top: 22px; }
   .story.remote .story-sticky, .story.fold .story-sticky { grid-template-columns: minmax(0, 1fr); }

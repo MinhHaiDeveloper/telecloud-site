@@ -97,13 +97,42 @@
     });
   });
 
-  // ---- Release | Beta: the highlight slides over before the other page opens
-  document.querySelectorAll('.channel a:not(.on)').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      if (e.ctrlKey || e.metaKey || e.shiftKey || reduce) return;
-      e.preventDefault();
-      a.closest('.channel').classList.add('leaving');
-      setTimeout(() => { location.href = a.href; }, 280);
+  // ---- Release | Beta: the app's stretchy highlight. It slides to the other side, the page opens,
+  // and there it finishes the move from where it left, so the two pages feel like one switch
+  const LEAD = '.28s cubic-bezier(.25,.8,.3,1)';
+  const TRAIL = '.42s cubic-bezier(.5,0,.2,1) .07s';
+  const SIDES = { release: { left: '3px', right: '50%' }, beta: { left: '50%', right: '3px' } };
+  const here = document.documentElement.dataset.channel === 'beta' ? 'beta' : 'release';
+  document.querySelectorAll('.channel').forEach((sw) => {
+    const ind = document.createElement('span');
+    ind.className = 'ind';
+    ind.setAttribute('aria-hidden', 'true');
+    sw.prepend(ind);
+    const place = (side, animate) => {
+      const toRight = side === 'beta';
+      ind.style.transition = animate && !reduce ? (toRight ? `right ${LEAD}, left ${TRAIL}` : `left ${LEAD}, right ${TRAIL}`) : 'none';
+      ind.style.left = SIDES[side].left;
+      ind.style.right = SIDES[side].right;
+    };
+    // arriving from the other page: start where the highlight was there
+    let from = null;
+    try { from = sessionStorage.getItem('tc-channel-from'); sessionStorage.removeItem('tc-channel-from'); } catch { /* private mode */ }
+    if (from && from !== here && !reduce) {
+      place(from, false);
+      void ind.offsetWidth;
+      requestAnimationFrame(() => place(here, true));
+    } else place(here, false);
+    sw.querySelectorAll('a:not(.on)').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
+        e.preventDefault();
+        const to = here === 'beta' ? 'release' : 'beta';
+        try { sessionStorage.setItem('tc-channel-from', to); } catch { /* fine */ }
+        sw.querySelector('a.on')?.classList.remove('on');
+        a.classList.add('on');
+        place(to, true);
+        setTimeout(() => { location.href = a.href; }, reduce ? 0 : 430);
+      });
     });
   });
 
