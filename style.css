@@ -474,6 +474,16 @@ td.us.y { color: var(--accent); }
 .r-mobile { display: none; }
 /* columns never grow with a big picture inside */
 .story.remote .story-sticky, .story.fold .story-sticky { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+/* Sound: the pictures are the whole app, so they get the wider column */
+.story.sound { height: 310vh; }
+.story.sound .story-sticky { grid-template-columns: minmax(0, .8fr) minmax(0, 1.25fr); gap: 48px; }
+.r-stage .shot.panel { max-height: 86%; }
+/* the clip light in the picture blinks, as it does in the app */
+.clip-shot { position: relative; display: inline-block; line-height: 0; width: min(398px, 100%); }
+.clip-shot img { width: 100%; height: auto; max-height: none; border-radius: 14px; border: 1px solid var(--border-2); }
+.clip-shot i { position: absolute; left: 13.6%; top: 46.8%; width: 3.6%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: #ff3b30; box-shadow: 0 0 0 4px rgba(255, 59, 48, .25), 0 0 14px rgba(255, 59, 48, .7); animation: clipBlink .6s steps(2, jump-none) infinite; }
+@keyframes clipBlink { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
+@media (prefers-reduced-motion: reduce) { .clip-shot i { animation: none; } }
 .story-copy, .steps-copy, .sc { min-width: 0; }
 .r-mobile .shot { width: 100%; height: auto; }
 
@@ -488,12 +498,13 @@ td.us.y { color: var(--accent); }
   .channel a { padding: 5px 11px; }
   .r-stage { display: none; }
   .r-mobile { display: grid; place-items: center; margin-top: 22px; }
-  .story.remote .story-sticky, .story.fold .story-sticky { grid-template-columns: minmax(0, 1fr); }
+  .story.remote .story-sticky, .story.fold .story-sticky, .story.sound .story-sticky { grid-template-columns: minmax(0, 1fr); }
   .fold-dev.flex { width: 80vw; }
-  .story.remote .steps-copy, .story.fold .steps-copy { min-height: 0; }
-  .story.remote .sc, .story.fold .sc { position: static; opacity: 1; transform: none; margin-bottom: 44px; pointer-events: auto; }
-  .story.remote .dots, .story.fold .dots { display: none; }
-  .story.remote, .story.fold { height: auto; }
+  .story.remote .steps-copy, .story.fold .steps-copy, .story.sound .steps-copy { min-height: 0; }
+  .story.remote .sc, .story.fold .sc, .story.sound .sc { position: static; opacity: 1; transform: none; margin-bottom: 44px; pointer-events: auto; }
+  .story.remote .dots, .story.fold .dots, .story.sound .dots { display: none; }
+  .story.remote, .story.fold, .story.sound { height: auto; }
+  .story.sound .r-mobile .shot[src*="clip-panel"] { width: min(320px, 100%); }
   .hero-pair .hero-phone { right: 2%; bottom: -12%; width: 30vw; }
 }
 /* a narrow desktop: a little less room around the links, so everything still fits */

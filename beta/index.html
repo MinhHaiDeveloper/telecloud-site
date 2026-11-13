@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TeleCloud Beta — Control your music from any screen</title>
-  <meta name="description" content="TeleCloud Beta: turn your phone, tablet or another computer into a remote for the music on your PC. Nothing to install, and the sound stays bit-perfect on your DAC.">
+  <meta name="description" content="TeleCloud Beta: turn your phone, tablet or another computer into a remote for the music on your PC, and shape the sound with tone, room correction and a clip light. Bit-perfect until you change it.">
   <meta name="theme-color" content="#0b0b0d">
   <link rel="canonical" href="https://telecloud-music.pages.dev/beta/">
   <meta property="og:type" content="website">
@@ -43,6 +43,7 @@
     <nav class="nav-links" aria-label="Sections">
       <a href="#remote">Remote</a>
       <a href="#fold">Fold</a>
+      <a href="#sound">Sound</a>
       <a href="#anywhere">Any screen</a>
       <a href="#awake">Awake</a>
     </nav>
@@ -60,6 +61,7 @@
         <span class="badge b-cloud">Remote</span>
         <span class="badge b-ok">Flex Mode</span>
         <span class="badge b-cached">Lyrics</span>
+        <span class="badge b-hires">Sound</span>
         <span class="badge b-local">Wake-on-LAN</span>
       </div>
       <div class="hero-shot hero-pair" data-scroll="hero">
@@ -171,6 +173,67 @@
       </div>
     </section>
 
+    <!-- Sound -->
+    <section class="story sound" id="sound" data-scroll="sound" data-steps="4">
+      <div class="story-sticky">
+        <div class="story-copy">
+          <p class="eyebrow">Settings › Sound</p>
+          <div class="steps-copy">
+            <div class="sc" data-s="0">
+              <h2>Warm or bright, with one slider.</h2>
+              <p>Warmth tilts the whole sound around 1 kHz. Bass, Treble and Loudness, stereo width from mono to wider than the record, mono, swap and polarity. Night mode, Air and Tube warmth when you want a little colour.</p>
+              <figure class="r-mobile"><img class="shot" src="../assets/beta/sound-tone.webp" alt="Settings › Sound with Warmth, Bass, Treble and stereo width" loading="lazy" width="1920" height="1200"></figure>
+            </div>
+            <div class="sc" data-s="1">
+              <h2>Watch the music move.</h2>
+              <p>The parametric EQ now has a live spectrum under the curve: the music as it plays, after every filter, so you see what a band really does.</p>
+              <figure class="r-mobile"><img class="shot" src="../assets/beta/eq-live.webp" alt="The parametric EQ with the live spectrum under the curve" loading="lazy" width="1920" height="1200"></figure>
+            </div>
+            <div class="sc" data-s="2">
+              <h2>A red light when it clips.</h2>
+              <p>Boost too far and the sound goes over 0 dBFS. The light in the signal path blinks red and says what to do. Prevent clipping lowers the level by your biggest boost, so it never gets there.</p>
+              <figure class="r-mobile"><span class="clip-shot"><img class="shot" src="../assets/beta/clip-panel.webp" alt="The signal path with the Sound step blinking red" loading="lazy" width="398" height="515"><i aria-hidden="true"></i></span></figure>
+            </div>
+            <div class="sc" data-s="3">
+              <h2>Hear the difference, fairly.</h2>
+              <p>A/B plays the original at the same loudness, because louder always sounds better. Load a room or headphone correction from REW, Dirac or a text curve, and compare.</p>
+              <figure class="r-mobile"><img class="shot" src="../assets/beta/sound-ab.webp" alt="Room correction from a file, Prevent clipping and the A/B switch" loading="lazy" width="1920" height="1200"></figure>
+            </div>
+          </div>
+          <div class="dots" aria-hidden="true"><i data-s="0"></i><i data-s="1"></i><i data-s="2"></i><i data-s="3"></i></div>
+        </div>
+        <div class="story-visual">
+          <div class="r-stage">
+            <figure data-s="0"><img class="shot" src="../assets/beta/sound-tone.webp" alt="" width="1920" height="1200" loading="lazy"></figure>
+            <figure data-s="1"><img class="shot" src="../assets/beta/eq-live.webp" alt="" width="1920" height="1200" loading="lazy"></figure>
+            <figure data-s="2"><span class="clip-shot"><img class="shot panel" src="../assets/beta/clip-panel.webp" alt="" width="398" height="515" loading="lazy"><i aria-hidden="true"></i></span></figure>
+            <figure data-s="3"><img class="shot" src="../assets/beta/sound-ab.webp" alt="" width="1920" height="1200" loading="lazy"></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calmer -->
+    <section class="split" id="calm">
+      <div class="split-copy reveal">
+        <p class="eyebrow">Room to breathe</p>
+        <h2>Put the panel away. Let the albums roll on.</h2>
+        <p>The side panel folds away with one button or Ctrl+J, and TeleCloud remembers. When an album ends, the artist's next one plays, or the one beside it in Albums, with no gap.</p>
+        <ul class="ticks">
+          <li>Reduce motion: buttons and pages change at once</li>
+          <li>Signal path in the side panel: Full, Compact or Off</li>
+          <li>Fresher quality tags in the light themes</li>
+          <li>Logs say what the sound settings do</li>
+        </ul>
+      </div>
+      <div class="split-shot reveal">
+        <div class="window">
+          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
+          <img src="../assets/beta/panel-hidden.webp" alt="An album page with the side panel put away" loading="lazy" width="1920" height="1200">
+        </div>
+      </div>
+    </section>
+
     <!-- Any screen -->
     <section class="split" id="anywhere">
       <div class="split-copy reveal">
@@ -219,7 +282,7 @@
         <div class="card dl-card reveal" data-channel="beta">
           <span class="badge b-cloud">Beta</span>
           <h3>TeleCloud Beta</h3>
-          <p>Everything in TeleCloud, plus the remote, the Fold layouts and what comes next. Updates itself to each new beta.</p>
+          <p>Everything in TeleCloud, plus the remote, the Fold layouts, the Sound page and what comes next. Updates itself to each new beta.</p>
           <a class="btn-primary dl-btn" aria-disabled="true">Coming soon</a>
           <small class="dl-meta"></small>
         </div>
