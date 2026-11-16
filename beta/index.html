@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TeleCloud Beta — Control your music from any screen</title>
-  <meta name="description" content="TeleCloud Beta: turn your phone, tablet or another computer into a remote for the music on your PC, and shape the sound with tone, room correction and a clip light. Bit-perfect until you change it.">
+  <meta name="description" content="TeleCloud Beta: turn your phone, tablet or another computer into a remote for the music on your PC, shape the sound, and sing along word by word with floating lyrics. Bit-perfect until you change it.">
   <meta name="theme-color" content="#0b0b0d">
   <link rel="canonical" href="https://telecloud-music.pages.dev/beta/">
   <meta property="og:type" content="website">
@@ -44,6 +44,8 @@
       <a href="#remote">Remote</a>
       <a href="#fold">Fold</a>
       <a href="#sound">Sound</a>
+      <a href="#words">Lyrics</a>
+      <a href="#controls">Controls</a>
       <a href="#anywhere">Any screen</a>
       <a href="#awake">Awake</a>
     </nav>
@@ -60,8 +62,8 @@
       <div class="hero-badges reveal">
         <span class="badge b-cloud">Remote</span>
         <span class="badge b-ok">Flex Mode</span>
-        <span class="badge b-cached">Lyrics</span>
-        <span class="badge b-hires">Sound</span>
+                <span class="badge b-hires">Sound</span>
+        <span class="badge b-cached">Word by word</span>
         <span class="badge b-local">Wake-on-LAN</span>
       </div>
       <div class="hero-shot hero-pair" data-scroll="hero">
@@ -213,6 +215,77 @@
       </div>
     </section>
 
+    <!-- Word by word -->
+    <section class="split" id="words">
+      <div class="split-copy reveal">
+        <p class="eyebrow">Sing along</p>
+        <h2>Lyrics that light up word by word.</h2>
+        <p>Lyrics with a time for each word light up as they are sung: in the side panel, full screen, the floating lyrics and the remote. Behind the seek bar, the track's waveform shows where the quiet and the loud parts are.</p>
+        <ul class="ticks">
+          <li>Enhanced LRC and TTML, as other players use them</li>
+          <li>Word timings as JSON: paste or open them in the lyrics editor</li>
+          <li>The waveform is worked out once per file, then kept</li>
+          <li>Plain and line-synced lyrics work as before</li>
+        </ul>
+      </div>
+      <div class="split-shot reveal">
+        <div class="window">
+          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
+          <img src="../assets/beta/words-np.webp" alt="Now Playing with a lyric line lit word by word and the waveform seek bar" loading="lazy" width="1920" height="1200">
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating lyrics -->
+    <section class="split rev" id="floating">
+      <div class="split-copy reveal">
+        <p class="eyebrow">Over everything</p>
+        <h2>The lyrics stay on top while you work.</h2>
+        <p>Floating lyrics: a small see-through window with the line being sung and the next, over every other app. Drag it anywhere and size it; lock it and your clicks go straight through to what is under it.</p>
+        <ul class="ticks">
+          <li>Opens from the lyrics card, the tray or Settings › Appearance</li>
+          <li>Never takes the keyboard from what you are doing</li>
+          <li>Remembers where you left it</li>
+        </ul>
+      </div>
+      <div class="split-shot reveal">
+        <div class="window">
+          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
+          <img src="../assets/beta/floating.webp" alt="Floating lyrics over the TeleCloud window" loading="lazy" width="1920" height="1200">
+        </div>
+      </div>
+    </section>
+
+    <!-- Liquid cover -->
+    <section class="split" id="liquid">
+      <div class="split-copy reveal">
+        <p class="eyebrow">A new album</p>
+        <h2>The next cover pours in.</h2>
+        <p>When the music moves on to another album, its cover runs in over the last one like paint into water, with small waves rolling behind the edge. Within one album it simply changes, and Reduce motion turns it off.</p>
+      </div>
+      <div class="split-shot reveal">
+        <img class="sq" src="../assets/beta/liquid-cover.webp" alt="One album cover pouring in over another" loading="lazy" width="613" height="613">
+      </div>
+    </section>
+
+    <!-- Everyday controls -->
+    <section class="split rev" id="controls">
+      <div class="split-copy reveal">
+        <p class="eyebrow">Everyday controls</p>
+        <h2>Media keys, the Windows flyout, a sleep timer.</h2>
+        <p>Your keyboard's Play, Pause, Next and Previous keys work with TeleCloud in the tray, and the Windows media controls show the track, its cover and the buttons, even on the lock screen. Fall asleep to an album: the last ten seconds fade out.</p>
+        <ul class="ticks">
+          <li>Previous, Play and Next on the taskbar thumbnail and in the tray</li>
+          <li>Paused in Exclusive mode? Other apps can use the DAC</li>
+          <li>A soft fade on play and pause, never in a bit-perfect chain</li>
+          <li>Open music files from Explorer: they play at once</li>
+        </ul>
+      </div>
+      <div class="split-shot reveal">
+        <img class="sq small" src="../assets/beta/sleep-menu.webp" alt="The sleep timer: minutes, end of the track or album, or after a number of tracks" loading="lazy" width="373" height="372">
+      </div>
+    </section>
+
     <!-- Calmer -->
     <section class="split" id="calm">
       <div class="split-copy reveal">
@@ -282,7 +355,7 @@
         <div class="card dl-card reveal" data-channel="beta">
           <span class="badge b-cloud">Beta</span>
           <h3>TeleCloud Beta</h3>
-          <p>Everything in TeleCloud, plus the remote, the Fold layouts, the Sound page and what comes next. Updates itself to each new beta.</p>
+          <p>Everything in TeleCloud, plus the remote, the Sound page, lyrics word by word, floating lyrics, media keys and what comes next. Updates itself to each new beta.</p>
           <a class="btn-primary dl-btn" aria-disabled="true">Coming soon</a>
           <small class="dl-meta"></small>
         </div>
