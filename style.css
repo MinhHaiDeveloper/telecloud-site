@@ -481,9 +481,9 @@ td.us.y { color: var(--accent); }
 .story.sound .story-sticky { grid-template-columns: minmax(0, .8fr) minmax(0, 1.25fr); gap: 48px; }
 .r-stage .shot.panel { max-height: 86%; }
 /* the clip light in the picture blinks, as it does in the app */
-.clip-shot { position: relative; display: inline-block; line-height: 0; width: min(398px, 100%); }
+.clip-shot { position: relative; display: inline-block; line-height: 0; width: min(366px, 100%); }
 .clip-shot img { width: 100%; height: auto; max-height: none; border-radius: 14px; border: 1px solid var(--border-2); }
-.clip-shot i { position: absolute; left: 13.6%; top: 46.8%; width: 3.6%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: #ff3b30; box-shadow: 0 0 0 4px rgba(255, 59, 48, .25), 0 0 14px rgba(255, 59, 48, .7); animation: clipBlink .6s steps(2, jump-none) infinite; }
+.clip-shot i { position: absolute; left: 12%; top: 36.8%; width: 3.9%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: #ff3b30; box-shadow: 0 0 0 4px rgba(255, 59, 48, .25), 0 0 14px rgba(255, 59, 48, .7); animation: clipBlink .6s steps(2, jump-none) infinite; }
 @keyframes clipBlink { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
 @media (prefers-reduced-motion: reduce) { .clip-shot i { animation: none; } }
 .story-copy, .steps-copy, .sc { min-width: 0; }
