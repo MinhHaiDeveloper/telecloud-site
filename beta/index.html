@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TeleCloud Beta — Control your music from any screen</title>
-  <meta name="description" content="TeleCloud Beta: turn your phone, tablet or another computer into a remote for the music on your PC, shape the sound, and sing along word by word with floating lyrics. Bit-perfect until you change it.">
+  <meta name="description" content="TeleCloud Beta: turn your phone, tablet or another computer into a remote for the music on your PC, shape the sound, sing along word by word, and let smart playlists fill themselves. Bit-perfect until you change it.">
   <meta name="theme-color" content="#0b0b0d">
   <link rel="canonical" href="https://telecloud-music.pages.dev/beta/">
   <meta property="og:type" content="website">
@@ -42,12 +42,11 @@
     </div>
     <nav class="nav-links" aria-label="Sections">
       <a href="#remote">Remote</a>
-      <a href="#fold">Fold</a>
       <a href="#sound">Sound</a>
       <a href="#words">Lyrics</a>
+      <a href="#library">Playlists</a>
       <a href="#controls">Controls</a>
       <a href="#anywhere">Any screen</a>
-      <a href="#awake">Awake</a>
     </nav>
     <a class="btn-primary sm" href="#download">Download</a>
   </header>
@@ -64,6 +63,7 @@
         <span class="badge b-ok">Flex Mode</span>
                 <span class="badge b-hires">Sound</span>
         <span class="badge b-cached">Word by word</span>
+        <span class="badge b-ok">Smart playlists</span>
         <span class="badge b-local">Wake-on-LAN</span>
       </div>
       <div class="hero-shot hero-pair" data-scroll="hero">
@@ -260,16 +260,79 @@
     <section class="split" id="liquid">
       <div class="split-copy reveal">
         <p class="eyebrow">A new album</p>
-        <h2>The next cover pours in.</h2>
-        <p>When the music moves on to another album, its cover runs in over the last one like paint into water, with small waves rolling behind the edge. Within one album it simply changes, and Reduce motion turns it off.</p>
+        <h2>The next cover floods in, and the room follows.</h2>
+        <p>When the music moves on to another album, its cover floods in as a growing circle, with rings running through both pictures and the colours splitting at the rim. Behind Now Playing, the cover's colours drift like ink in water, swirl out with the change, then slowly settle.</p>
+        <ul class="ticks">
+          <li>Drawn on the graphics card: smooth in full screen too</li>
+          <li>Open Now Playing half-way and it carries on from there</li>
+          <li>Dark covers give their own colours, not a black screen</li>
+          <li>Within one album it simply changes; Reduce motion turns it off</li>
+        </ul>
       </div>
       <div class="split-shot reveal">
-        <img class="sq" src="../assets/beta/liquid-cover.webp" alt="One album cover pouring in over another" loading="lazy" width="613" height="613">
+        <div class="window">
+          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
+          <img src="../assets/beta/liquid-np.webp" alt="Now Playing with one cover flooding in over another, the backdrop in both their colours" loading="lazy" width="1920" height="1200">
+        </div>
+      </div>
+    </section>
+
+    <!-- Smart playlists -->
+    <section class="split rev" id="library">
+      <div class="split-copy reveal">
+        <p class="eyebrow">Playlists that fill themselves</p>
+        <h2>Write the rules once. It keeps itself up to date.</h2>
+        <p>A smart playlist is a few rules: artist, genre, year, quality, format, MQA, plays, last played, date added, favourite, on this PC or in TeleCloud. Match all or any, pick an order and a limit, and it changes by itself as you add music and play it.</p>
+        <ul class="ticks">
+          <li>Shows on the remote like any playlist</li>
+          <li>Import and export .m3u8 and .m3u; tracks not found are listed, never dropped quietly</li>
+          <li>Play next keeps the order you add things in, and a track can play 2, 3 or 5 times in a row</li>
+        </ul>
+      </div>
+      <div class="split-shot reveal">
+        <div class="window">
+          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
+          <img src="../assets/beta/smart-dialog.webp" alt="A new smart playlist: Atlas, played at least twice, not lossy, most played first" loading="lazy" width="1920" height="1200">
+        </div>
+      </div>
+    </section>
+
+    <!-- Listening history -->
+    <section class="split" id="history">
+      <div class="split-copy reveal">
+        <p class="eyebrow">Your listening, put to use</p>
+        <h2>What you play most, and what you played a year ago today.</h2>
+        <p>Discover shows your most played this week, month or year, ready to play again. On this day brings back what you were listening to around this date in earlier years, one card per year.</p>
+        <ul class="ticks">
+          <li>The Dashboard has both, and a range of dates you pick</li>
+          <li>Built from your own play history, on your computer</li>
+        </ul>
+      </div>
+      <div class="split-shot reveal">
+        <div class="window">
+          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
+          <img src="../assets/beta/history.webp" alt="Discover with Most played and On this day" loading="lazy" width="1920" height="1200">
+        </div>
+      </div>
+    </section>
+
+    <!-- Folders -->
+    <section class="split rev" id="folders">
+      <div class="split-copy reveal">
+        <p class="eyebrow">Your folders, as they are</p>
+        <h2>Browse by folder, play a whole one.</h2>
+        <p>For music kept by folder: Folders shows your library the way it sits on disk, each folder with its tracks counted, and plays or shuffles a whole folder with everything under it.</p>
+      </div>
+      <div class="split-shot reveal">
+        <div class="window">
+          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
+          <img src="../assets/beta/folders.webp" alt="The Folders page with four artist folders" loading="lazy" width="1920" height="1200">
+        </div>
       </div>
     </section>
 
     <!-- Everyday controls -->
-    <section class="split rev" id="controls">
+    <section class="split" id="controls">
       <div class="split-copy reveal">
         <p class="eyebrow">Everyday controls</p>
         <h2>Media keys, the Windows flyout, a sleep timer.</h2>
@@ -287,7 +350,7 @@
     </section>
 
     <!-- Calmer -->
-    <section class="split" id="calm">
+    <section class="split rev" id="calm">
       <div class="split-copy reveal">
         <p class="eyebrow">Room to breathe</p>
         <h2>Put the panel away. Let the albums roll on.</h2>
@@ -355,7 +418,7 @@
         <div class="card dl-card reveal" data-channel="beta">
           <span class="badge b-cloud">Beta</span>
           <h3>TeleCloud Beta</h3>
-          <p>Everything in TeleCloud, plus the remote, the Sound page, lyrics word by word, floating lyrics, media keys and what comes next. Updates itself to each new beta.</p>
+          <p>Everything in TeleCloud, plus the remote, the Sound page, lyrics word by word, smart playlists, Folders, media keys and what comes next. Updates itself to each new beta.</p>
           <a class="btn-primary dl-btn" aria-disabled="true">Coming soon</a>
           <small class="dl-meta"></small>
         </div>

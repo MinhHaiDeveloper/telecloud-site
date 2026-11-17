@@ -516,3 +516,4 @@ td.us.y { color: var(--accent); }
   .nav .brand { min-width: 176px; }
 }
 @media (max-width: 560px) { .nav .brand span { display: none; } .nav .brand { min-width: 0; } }
+.nav-links a { white-space: nowrap; }
