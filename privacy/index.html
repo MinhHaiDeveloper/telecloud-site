@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — TeleCloud</title>
+  <meta name="description" content="TeleCloud has no server and collects nothing. What stays on your computer, what goes to your own Telegram, and what goes to the online services you turn on.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="canonical" href="https://telecloud-music.pages.dev/privacy/">
+  <link rel="icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="../" aria-label="TeleCloud home">
+      <img src="../assets/icon.svg" alt="" width="30" height="30">
+      <span>TeleCloud</span>
+    </a>
+    <nav class="nav-links" aria-label="Pages">
+      <a href="../privacy/" class="on" aria-current="page">Privacy</a>
+      <a href="../telegram/">TeleCloud and Telegram</a>
+      <a href="../security/">Security</a>
+    </nav>
+    <a class="btn-primary sm" href="../#download">Download</a>
+  </header>
+
+  <main class="doc">
+    <p class="eyebrow">Privacy</p>
+    <h1>Your music stays yours.</h1>
+    <p class="lead">TeleCloud is an app on your computer, not a service. There is no TeleCloud server, no account with us, and nothing is collected about you or how you use the app.</p>
+    <p class="updated">Last updated 20 November 2026</p>
+
+    <h2>What stays on your computer</h2>
+    <ul>
+      <li>Your library, playlists, play counts, listening history, settings and logs.</li>
+      <li>Your Telegram sign-in and the key that encrypts your backup. Both are protected by Windows itself (the data protection tied to your Windows account), and never leave the computer except as you choose, for example when you write the recovery key down.</li>
+      <li>The log, when something goes wrong. It is only sent if you send it yourself, and passwords, keys and your Telegram session are never in it.</li>
+    </ul>
+
+    <h2>What goes to your own Telegram</h2>
+    <p>If you turn on TeleCloud Sync, your music is uploaded to a private channel in <strong>your</strong> Telegram account, signed in with an API ID you create yourself. Files are encrypted on your computer before they are sent (this is on by default), so Telegram stores data it cannot read. TeleCloud's developer has no access to your account or your files. See <a href="../telegram/">TeleCloud and Telegram</a> and <a href="../security/">Security</a>.</p>
+
+    <h2>What goes to online services, only if you use them</h2>
+    <table>
+      <thead><tr><th>When</th><th>What is sent, and where</th></tr></thead>
+      <tbody>
+        <tr><td>Looking for lyrics, covers or artist pictures</td><td>The title, artist and album of the track, to the sources you leave on: LRCLIB, NetEase, QQ Music, Kugou, Genius, Musixmatch, Apple Music, Deezer, MusicBrainz and the Cover Art Archive, Last.fm, TheAudioDB, Wikidata and Wikimedia Commons, YouTube (with your own key). Each can be turned off in Settings.</td></tr>
+        <tr><td>Scrobbling</td><td>What you listen to, to Last.fm or ListenBrainz, if you connect them.</td></tr>
+        <tr><td>Discord status</td><td>What is playing, to the Discord app on your computer, if you turn it on.</td></tr>
+        <tr><td>Updates</td><td>TeleCloud asks GitHub whether a new version is out.</td></tr>
+        <tr><td>Word timing (Cadence), headphone EQ (AutoEQ)</td><td>Models and measurements are downloaded from GitHub when you ask for them. The music is analysed on your computer and never uploaded for this.</td></tr>
+        <tr><td>The Remote</td><td>Works only inside your home network, between your computer and the devices you pair. Nothing goes through the internet.</td></tr>
+      </tbody>
+    </table>
+    <p>These services have their own privacy policies. TeleCloud sends them only what each feature needs.</p>
+
+    <h2>What TeleCloud never does</h2>
+    <ul>
+      <li>No analytics, no telemetry, no tracking, no advertising.</li>
+      <li>No selling or sharing of data: there is none to share.</li>
+      <li>No use of your music, messages or Telegram data to train AI.</li>
+    </ul>
+
+    <h2>This website</h2>
+    <p>This site sets no cookies and has no analytics. It is hosted on Cloudflare Pages, which keeps the usual server logs, and its fonts come from Google Fonts.</p>
+
+    <h2>Questions</h2>
+    <p>TeleCloud is open source, so all of the above can be checked in the code on <a href="https://github.com/MinhHaiDeveloper/telecloud">GitHub</a>. Questions go to its <a href="https://github.com/MinhHaiDeveloper/telecloud/issues">Issues</a> page.</p>
+  </main>
+
+  <footer class="foot">
+    <div class="brand"><img src="../assets/icon.svg" alt="" width="24" height="24"><span>TeleCloud</span></div>
+    <p class="links"><a href="../privacy/">Privacy</a><a href="../telegram/">TeleCloud and Telegram</a><a href="../security/">Security</a><a href="https://github.com/MinhHaiDeveloper/telecloud">GitHub</a></p>
+    <p class="muted">TeleCloud is an unofficial app that uses the Telegram API. It is not affiliated with Telegram.</p>
+  </footer>
+</body>
+</html>

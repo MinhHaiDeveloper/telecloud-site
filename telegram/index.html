@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TeleCloud and Telegram</title>
+  <meta name="description" content="TeleCloud is an unofficial app that uses the Telegram API. How it uses your own account, how it stays a good citizen, and what to keep in mind.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="canonical" href="https://telecloud-music.pages.dev/telegram/">
+  <link rel="icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="../" aria-label="TeleCloud home">
+      <img src="../assets/icon.svg" alt="" width="30" height="30">
+      <span>TeleCloud</span>
+    </a>
+    <nav class="nav-links" aria-label="Pages">
+      <a href="../privacy/">Privacy</a>
+      <a href="../telegram/" class="on" aria-current="page">TeleCloud and Telegram</a>
+      <a href="../security/">Security</a>
+    </nav>
+    <a class="btn-primary sm" href="../#download">Download</a>
+  </header>
+
+  <main class="doc">
+    <p class="eyebrow">TeleCloud and Telegram</p>
+    <h1>Your account, your channel, your rules.</h1>
+    <p class="lead">TeleCloud is an unofficial app that uses the Telegram API. It is made by an independent developer and is not affiliated with, or endorsed by, Telegram.</p>
+    <p class="updated">Last updated 20 November 2026</p>
+
+    <h2>How TeleCloud uses Telegram</h2>
+    <ul>
+      <li><strong>Your own account.</strong> You sign in with your phone number, the way any Telegram app does.</li>
+      <li><strong>Your own API ID.</strong> You create it yourself at <a href="https://my.telegram.org/apps">my.telegram.org</a>. TeleCloud ships no shared key and runs no server between you and Telegram.</li>
+      <li><strong>Private channels only.</strong> Your music goes into a private channel that only you can see (or your Saved Messages). TeleCloud never posts in public chats and never sends messages to anyone.</li>
+      <li><strong>Files only you can read.</strong> With encryption on (the default), each file is encrypted on your computer first. See <a href="../security/">Security</a>.</li>
+    </ul>
+
+    <h2>Being a good citizen</h2>
+    <ul>
+      <li>One file at a time, and an <strong>upload speed limit</strong> in Settings &gt; TeleCloud Sync, so a big backup leaves room for everything else.</li>
+      <li>When Telegram asks a client to slow down, TeleCloud waits the time it is told and carries on by itself. It never tries to get around those limits.</li>
+      <li>Files that are already backed up are recognised by their checksum and not uploaded again.</li>
+      <li>Telegram's own limit of 2000 MB per file is respected.</li>
+    </ul>
+
+    <div class="note">
+      <p><strong>A gentle suggestion.</strong> Back up a little at a time, an album or a playlist you made, rather than a whole drive in one go. It is kinder to Telegram's limits and easier to keep tidy. And when you no longer listen to something, you can remove it from TeleCloud too: the channel stays light, and so does restoring it on a new computer.</p>
+    </div>
+
+    <h2>What to keep in mind</h2>
+    <ul>
+      <li><strong>Telegram's Terms of Service apply to your account</strong>, as they do in any Telegram app. Telegram decides how it treats accounts and storage, and could limit an account. Only back up music you have the right to keep.</li>
+      <li><strong>Keep your originals.</strong> TeleCloud is a backup and a way to listen anywhere, not the only copy of your music.</li>
+      <li><strong>Keep your recovery key</strong> somewhere outside this computer. Without it, encrypted backups cannot be opened after a reinstall or on another computer.</li>
+      <li>A sign-in that is not used for a while may be ended by Telegram, depending on your account's settings. Your backup stays; you only sign in again.</li>
+    </ul>
+
+    <h2>More than Telegram, later</h2>
+    <p>Telegram is where TeleCloud started, and it stays the easiest way to back up with no server of your own. Other places to keep your backup, such as a folder on a NAS or an S3-compatible storage, are planned, so you can choose, or keep a second copy.</p>
+  </main>
+
+  <footer class="foot">
+    <div class="brand"><img src="../assets/icon.svg" alt="" width="24" height="24"><span>TeleCloud</span></div>
+    <p class="links"><a href="../privacy/">Privacy</a><a href="../telegram/">TeleCloud and Telegram</a><a href="../security/">Security</a><a href="https://github.com/MinhHaiDeveloper/telecloud">GitHub</a></p>
+    <p class="muted">TeleCloud is an unofficial app that uses the Telegram API. It is not affiliated with Telegram.</p>
+  </footer>
+</body>
+</html>

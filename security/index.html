@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security — TeleCloud</title>
+  <meta name="description" content="How TeleCloud encrypts your backup before it leaves your computer, where the keys live, what Telegram can and cannot see, and how to report a problem.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="canonical" href="https://telecloud-music.pages.dev/security/">
+  <link rel="icon" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="../" aria-label="TeleCloud home">
+      <img src="../assets/icon.svg" alt="" width="30" height="30">
+      <span>TeleCloud</span>
+    </a>
+    <nav class="nav-links" aria-label="Pages">
+      <a href="../privacy/">Privacy</a>
+      <a href="../telegram/">TeleCloud and Telegram</a>
+      <a href="../security/" class="on" aria-current="page">Security</a>
+    </nav>
+    <a class="btn-primary sm" href="../#download">Download</a>
+  </header>
+
+  <main class="doc">
+    <p class="eyebrow">Security</p>
+    <h1>Encrypted before it leaves your computer.</h1>
+    <p class="lead">With encryption on, which is the default, your backup is encrypted on your computer with a key only you have. Telegram stores it, but cannot read it. The code that does this is open, in <a href="https://github.com/MinhHaiDeveloper/telecloud/blob/main/electron/telecloud/crypto.js"><code>electron/telecloud/crypto.js</code></a>.</p>
+    <p class="updated">Last updated 20 November 2026</p>
+
+    <h2>Your key</h2>
+    <ul>
+      <li>One random 256-bit <strong>master key</strong> is made on your computer when you set up TeleCloud Sync. It is never sent anywhere.</li>
+      <li>You see it as a <strong>recovery key</strong> of 52 characters in groups of four, written without look-alike characters (no 0/O or 1/I/L), so it survives being copied by hand. Another computer needs it to open your backup.</li>
+      <li>On your computer, the key, your Telegram sign-in and your API ID are protected by Windows' data protection (DPAPI), tied to your Windows account.</li>
+      <li>Separate keys for files and for track info are derived from the master key (HKDF-SHA256), so neither is used for two jobs.</li>
+    </ul>
+
+    <h2>What is encrypted, and how</h2>
+    <table>
+      <thead><tr><th>What</th><th>How</th></tr></thead>
+      <tbody>
+        <tr><td>The music files</td><td>AES-256-CTR with a random IV per file. The encrypted file is the same size as the original, and any part of it can be decrypted on its own, so a track streams and seeks without downloading it all.</td></tr>
+        <tr><td>Track info (title, artist, album, checksum)</td><td>AES-256-GCM with a random nonce, so a wrong key or a changed message is caught.</td></tr>
+        <tr><td>The library index and album covers</td><td>Encrypted with the same key, before upload.</td></tr>
+        <tr><td>File names</td><td>Replaced by a short random-looking name; the real name is inside the encrypted track info.</td></tr>
+      </tbody>
+    </table>
+    <p>Every file carries a short fingerprint of the key it was encrypted with, so a wrong recovery key is noticed before anything is decrypted. A file downloaded in full is checked against the SHA-256 checksum of the original, so the copy you play is exactly the file you backed up.</p>
+
+    <h2>What Telegram can see</h2>
+    <ul>
+      <li>That your account has a channel with files in it, how many, how big, and when they were uploaded.</li>
+      <li>That the messages come from TeleCloud (their captions start with a short marker).</li>
+      <li><strong>Not</strong> the music, the titles, the artists, the album covers or your library.</li>
+    </ul>
+    <p>If you turn encryption off, files are uploaded as they are, with their names and track info readable in the channel.</p>
+
+    <h2>What encryption does not cover</h2>
+    <ul>
+      <li><strong>Your computer.</strong> Anyone who controls your Windows account, or malware running in it, can use TeleCloud as you can.</li>
+      <li><strong>Your Telegram account.</strong> Someone who takes over your account cannot read the files, but could delete them. Turn on Telegram's two-step verification.</li>
+      <li><strong>Losing the key.</strong> There is no way around a lost recovery key, by design. Keep it somewhere outside this computer.</li>
+      <li><strong>Sizes and times.</strong> These are visible to Telegram, as above.</li>
+    </ul>
+
+    <h2>The Remote</h2>
+    <p>The Remote works only inside your home network. A device pairs with a one-time key from the QR code or link shown in TeleCloud, then keeps its own token in a cookie the page's scripts cannot read; TeleCloud stores only a hash of each token. Devices can be made watch-only, or removed, and a new key signs every device out.</p>
+
+    <h2>Reporting a problem</h2>
+    <p>If you find a security problem, please report it privately through <a href="https://github.com/MinhHaiDeveloper/telecloud/security/advisories/new">GitHub's private vulnerability reporting</a> rather than in a public issue. You will get an answer as soon as the developer can, and credit in the release notes if you would like it.</p>
+  </main>
+
+  <footer class="foot">
+    <div class="brand"><img src="../assets/icon.svg" alt="" width="24" height="24"><span>TeleCloud</span></div>
+    <p class="links"><a href="../privacy/">Privacy</a><a href="../telegram/">TeleCloud and Telegram</a><a href="../security/">Security</a><a href="https://github.com/MinhHaiDeveloper/telecloud">GitHub</a></p>
+    <p class="muted">TeleCloud is an unofficial app that uses the Telegram API. It is not affiliated with Telegram.</p>
+  </footer>
+</body>
+</html>
