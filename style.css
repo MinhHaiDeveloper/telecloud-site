@@ -581,3 +581,7 @@ td.us.y { color: var(--accent); }
   .story.small .dots { display: none; }
   .story.small { height: auto; }
 }
+/* a link to a page of its own, under a section's ticks */
+.more-link { display: inline-flex; gap: 6px; margin-top: 22px; font-weight: 700; color: var(--accent); }
+.more-link:hover span { transform: translateX(3px); }
+.more-link span { transition: transform .2s; }

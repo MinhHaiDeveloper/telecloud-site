@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en" data-channel="beta">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TeleCloud Cadence — Word by word, worked out on your computer</title>
+  <meta name="description" content="Cadence listens to a song on your own PC and gives every word of its line-synced lyrics its own moment, so lyrics light up word by word. Nothing is sent anywhere. In TeleCloud Beta.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="canonical" href="https://telecloud-music.pages.dev/cadence/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TeleCloud">
+  <meta property="og:url" content="https://telecloud-music.pages.dev/cadence/">
+  <meta property="og:title" content="TeleCloud Cadence: word by word, worked out on your computer">
+  <meta property="og:description" content="Line-synced lyrics in, word-by-word lyrics out. Cadence listens to the song on your PC; nothing is sent anywhere.">
+  <link rel="icon" href="../assets/favicon-beta.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="cadence.css">
+</head>
+<body class="cad">
+  <div class="cad-ticker" aria-hidden="true">
+    <div class="cad-ticker-track">
+      <span><b>CADENCE</b> IN TELECLOUD BETA</span><i>///</i>
+      <span><b>MEDIAN</b> 47 MS PER WORD</span><i>///</i>
+      <span><b>ON DEVICE</b> 0 BYTES SENT</span><i>///</i>
+      <span><b>GPU</b> ABOUT A MINUTE A SONG</span><i>///</i>
+      <span><b>OUTPUT</b> ENHANCED LRC</span><i>///</i>
+      <span><b>CADENCE</b> IN TELECLOUD BETA</span><i>///</i>
+      <span><b>MEDIAN</b> 47 MS PER WORD</span><i>///</i>
+      <span><b>ON DEVICE</b> 0 BYTES SENT</span><i>///</i>
+      <span><b>GPU</b> ABOUT A MINUTE A SONG</span><i>///</i>
+      <span><b>OUTPUT</b> ENHANCED LRC</span><i>///</i>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="../beta/" aria-label="TeleCloud Beta">
+      <img src="../assets/icon-beta.svg" alt="" width="30" height="30">
+      <span>TeleCloud <i class="beta-tag">BETA</i></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#what">What it does</a>
+      <a href="#how">How it works</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#editor">Editor</a>
+    </nav>
+    <a class="btn-primary sm" href="../beta/#download">Get the beta</a>
+  </header>
+
+  <main id="top">
+    <!-- Hero: a dot waveform, a scan line, a lyric line lit word by word as the scan passes -->
+    <section class="cad-hero">
+      <p class="cad-label reveal"><span class="cad-dot"></span>TELECLOUD CADENCE / WORD TIMING / ON YOUR PC</p>
+      <h1 class="reveal">Word by word,<br><span class="grad">worked out on your computer.</span></h1>
+      <div class="cad-stage reveal" aria-hidden="true">
+        <canvas id="cad-wave"></canvas>
+        <div class="cad-scan"></div>
+        <div class="cad-hud cad-hud-l"><span>LINE 07</span><span id="cad-clock">00:42.18</span></div>
+        <div class="cad-hud cad-hud-r"><span>VOICE / 16 KHZ</span><span id="cad-stage-name">STAGE 02 · PLACE</span></div>
+      </div>
+      <p class="cad-line reveal" id="cad-line" aria-label="Every light is calling me home">
+        <span class="w" data-a="0.00" data-b="0.42">Every </span><span class="w" data-a="0.42" data-b="0.62">light </span><span class="w" data-a="0.62" data-b="0.72">is </span><span class="w" data-a="0.72" data-b="1.00">calling </span><span class="w" data-a="1.00" data-b="1.12">me </span><span class="w" data-a="1.12" data-b="1.40">home</span>
+      </p>
+      <div class="cad-hero-foot reveal">
+        <p class="lead">Most lyrics are timed a line at a time. Cadence listens to the song itself and gives every word its own moment, so the line lights up as it is sung. It runs on your PC, and nothing is sent anywhere.</p>
+        <div class="cad-actions">
+          <a class="btn-primary" href="../beta/#download">Get TeleCloud Beta</a>
+          <a class="btn-outline" href="#how">How it works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- What it does for you -->
+    <section class="cad-sec" id="what">
+      <div class="cad-head reveal">
+        <p class="cad-label">01 / WHAT IT DOES FOR YOU</p>
+        <h2>The lyrics you have, sung word by word.</h2>
+      </div>
+      <div class="cad-compare reveal" aria-hidden="true">
+        <div class="cad-card">
+          <p class="cad-label">BEFORE / LINE SYNCED</p>
+          <p class="cad-demo line-mode"><span>And I will follow where it goes</span></p>
+          <small>The whole line lights at once, and waits for the next.</small>
+        </div>
+        <div class="cad-card on">
+          <p class="cad-label">AFTER / WITH CADENCE</p>
+          <p class="cad-demo word-mode"><span class="w" style="--d:0s">And </span><span class="w" style="--d:.35s">I </span><span class="w" style="--d:.55s">will </span><span class="w" style="--d:.85s">follow </span><span class="w" style="--d:1.4s">where </span><span class="w" style="--d:1.75s">it </span><span class="w" style="--d:1.95s">goes</span></p>
+          <small>Each word fills as it is sung, as on a karaoke screen.</small>
+        </div>
+      </div>
+      <ul class="cad-grid reveal">
+        <li><b>Everywhere the lyrics show</b><span>Now Playing, the side panel, the floating lyrics over your other apps, and the remote on your phone.</span></li>
+        <li><b>Kept with the song</b><span>Saved like any lyrics, as Enhanced LRC, which other players read too. Time a song once, keep it for good.</span></li>
+        <li><b>Only what is missing</b><span>Lyrics that already have word times stay as they are; Cadence can time just the lines without them.</span></li>
+        <li><b>Honest about doubt</b><span>A line it cannot place well keeps its line time and is marked Check, instead of guessing.</span></li>
+      </ul>
+    </section>
+
+    <!-- How it works -->
+    <section class="cad-sec" id="how">
+      <div class="cad-head reveal">
+        <p class="cad-label">02 / HOW IT WORKS</p>
+        <h2>Three stages, one song at a time.</h2>
+      </div>
+      <ol class="cad-stages">
+        <li class="cad-stagecard reveal">
+          <p class="cad-label">STAGE 01 / HEAR THE VOICE</p>
+          <div class="cad-viz viz-split" aria-hidden="true">
+            <div class="row"><em>MIX</em><span class="bars mix"></span></div>
+            <div class="row"><em>VOICE</em><span class="bars voice"></span></div>
+          </div>
+          <h3>The music steps aside.</h3>
+          <p>Drums, bass and guitars are taken out so only the singing is left. Nothing loud on the beat can pull a word off its place.</p>
+        </li>
+        <li class="cad-stagecard reveal">
+          <p class="cad-label">STAGE 02 / PLACE EACH WORD</p>
+          <div class="cad-viz viz-place" aria-hidden="true">
+            <div class="ruler"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="words"><span style="--x:2%;--w:22%">Every<small>42.18</small></span><span style="--x:26%;--w:13%">light<small>42.60</small></span><span style="--x:41%;--w:7%">is<small>42.80</small></span><span style="--x:50%;--w:24%">calling<small>42.90</small></span><span style="--x:76%;--w:20%">home<small>43.30</small></span></div>
+          </div>
+          <h3>Every word finds its start.</h3>
+          <p>Each line already knows roughly when it is sung. Inside that window Cadence listens for the sounds of each word's letters and marks where it begins.</p>
+        </li>
+        <li class="cad-stagecard reveal">
+          <p class="cad-label">STAGE 03 / YOU HAVE THE LAST WORD</p>
+          <div class="cad-viz viz-you" aria-hidden="true">
+            <div class="strip"><span>calling</span><span class="sel">me<i></i></span><span>home</span></div>
+            <div class="keys"><kbd>Space</kbd><kbd>←</kbd><kbd>→</kbd><kbd>Ctrl+Z</kbd></div>
+          </div>
+          <h3>Fix anything in seconds.</h3>
+          <p>Drag a word's edge, nudge it with the arrow keys, or tap Space as each word is sung. Every change can be undone.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Numbers -->
+    <section class="cad-sec" id="numbers">
+      <div class="cad-head reveal">
+        <p class="cad-label">03 / MEASURED</p>
+        <h2>As close as the lyrics services are to each other.</h2>
+        <p class="lead">Tested on 25 songs that have word times from NetEase, QQ Music and Kugou, on an 8 GB laptop with an RTX 3050 Ti.</p>
+      </div>
+      <div class="cad-stats reveal">
+        <div><b data-count="47">47</b><span>ms</span><small>median error per word start, on the songs where two services agree</small></div>
+        <div><b>~1</b><span>min</span><small>a song on the graphics card (35 to 105 s); 2 to 3 min on the processor alone</small></div>
+        <div><b>0</b><span>bytes</span><small>sent anywhere: the song never leaves your computer</small></div>
+      </div>
+      <div class="cad-bars reveal" role="img" aria-label="Median error per word start: splitting a line evenly 150 to 274 ms, two lyrics services against each other 80 to 130 ms, Cadence 47 ms">
+        <p class="cad-label">MEDIAN ERROR PER WORD START · SHORTER IS CLOSER</p>
+        <div class="bar"><em>Splitting each line evenly</em><span style="--a:150;--b:274"></span><b>150–274 ms</b></div>
+        <div class="bar"><em>Two lyrics services, against each other</em><span style="--a:80;--b:130"></span><b>80–130 ms</b></div>
+        <div class="bar us"><em>Cadence</em><span style="--a:0;--b:47"></span><b>47 ms</b></div>
+        <p class="cad-note">Across all the test songs: English 67 ms, Japanese 81 ms.</p>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section class="cad-sec" id="languages">
+      <div class="cad-head reveal">
+        <p class="cad-label">04 / LANGUAGES</p>
+        <h2>Built for the songs other players skip.</h2>
+      </div>
+      <div class="cad-langs reveal">
+        <div class="cad-lang"><p class="cad-label">EN · AND MORE</p><h3>English and Latin script</h3><p>Accents, Cyrillic, Greek and Hangul are read by their sounds, so phonk, K-pop and more work too.</p></div>
+        <div class="cad-lang"><p class="cad-label">JA</p><h3>Japanese</h3><p>Kana and kanji as they are written, with its own pack for Japanese singing.</p></div>
+        <div class="cad-lang"><p class="cad-label">ZH · EARLY</p><h3>Chinese</h3><p>Characters are read as pinyin, a line at a time, so a character with two readings gets the right one.</p></div>
+      </div>
+      <div class="cad-honest reveal">
+        <p class="cad-label">STILL LEARNING</p>
+        <ul>
+          <li>English words inside Japanese lines are still rough; check them in the editor.</li>
+          <li>Chinese has been tried on only a few songs so far.</li>
+          <li>One song at a time, when you ask. Timing a whole library in the background comes later, once it is closer still.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- The editor -->
+    <section class="cad-sec" id="editor">
+      <div class="cad-split">
+        <div class="reveal">
+          <p class="cad-label">05 / THE WORD BY WORD EDITOR</p>
+          <h2>Time a chorus once. Paste it on every repeat.</h2>
+          <p class="lead">Cadence lives in the lyrics window, beside the line-synced editor. Run it on the whole song or only the lines without word times, watch each stage, stop it any time.</p>
+          <ul class="ticks">
+            <li>Drag a word's edge, or nudge it with the arrow keys</li>
+            <li>Tap Space on each word as it is sung, while the song plays</li>
+            <li>Copy word times with Ctrl+C and paste them onto a repeated line</li>
+            <li>Undo and redo everything; fix a word's spelling with Enter</li>
+            <li>Works on tracks kept only in TeleCloud too</li>
+          </ul>
+        </div>
+        <div class="cad-editor reveal" aria-hidden="true">
+          <div class="cad-editor-bar"><span>Word by word</span><span class="run">Time the words <i></i></span></div>
+          <div class="cad-editor-lines">
+            <p class="done"><b>0:38.40</b>Out there in the silent sea</p>
+            <p class="cur"><b>0:42.18</b><span class="w" style="--p:1">Every </span><span class="w" style="--p:1">light </span><span class="w" style="--p:.6">is </span><span class="w" style="--p:0">calling </span><span class="w" style="--p:0">me </span><span class="w" style="--p:0">home</span></p>
+            <p><b>0:46.02</b>And I will follow where it goes</p>
+            <p class="check"><b>0:50.77</b>Hold on, hold on <em>Check</em></p>
+          </div>
+          <div class="cad-editor-strip">
+            <span style="--x:0%;--w:18%">Every</span><span style="--x:19%;--w:13%">light</span><span style="--x:33%;--w:7%">is</span><span class="sel" style="--x:41%;--w:22%">calling<i></i></span><span style="--x:64%;--w:10%">me</span><span style="--x:75%;--w:20%">home</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Private and light -->
+    <section class="cad-sec" id="private">
+      <div class="cad-head reveal">
+        <p class="cad-label">06 / ON YOUR TERMS</p>
+        <h2>Optional, private, and gone when you want.</h2>
+      </div>
+      <div class="cad-specs reveal">
+        <div><p class="cad-label">DOWNLOAD ONLY IF YOU WANT IT</p><p>Cadence's packs are not part of the installer. Get them in Settings › Lyrics, and delete them whenever you like.</p>
+          <dl><dt>English and other languages</dt><dd>339 MB</dd><dt>Japanese</dt><dd>341 MB</dd><dt>Voice separation, optional</dt><dd>166 MB</dd></dl></div>
+        <div><p class="cad-label">NOTHING LEAVES YOUR PC</p><p>The song is read and timed on your computer. No account, no upload, no server of ours, because there is none.</p></div>
+        <div><p class="cad-label">LIGHT WHEN IDLE</p><p>It runs in its own process for one song and closes when it is done, so its memory goes with it. On the graphics card through DirectML, or on the processor.</p></div>
+      </div>
+      <p class="cad-credits reveal">Cadence is built on open research: <b>Demucs</b> for separating the voice (MIT) and <b>wav2vec 2.0</b> for hearing the words (Apache-2.0), both first published by Meta's AI research, run with ONNX Runtime. What the packs contain and how they are made is on <a href="https://github.com/MinhHaiDeveloper/telecloud-models">GitHub</a>.</p>
+    </section>
+
+    <!-- Get it -->
+    <section class="download" id="download">
+      <div class="dl-glow" aria-hidden="true"></div>
+      <p class="cad-label reveal">TAKE 01 / YOUR SONG</p>
+      <h2 class="reveal">Hear your lyrics, word by word.</h2>
+      <p class="lead reveal">Cadence is in TeleCloud Beta for Windows 10 and 11. Open a song's lyrics, pick Word by word, and press Time the words.</p>
+      <div class="cad-actions reveal"><a class="btn-primary" href="../beta/#download">Get TeleCloud Beta</a><a class="btn-outline" href="../beta/">See everything in the beta</a></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="brand"><img src="../assets/icon-beta.svg" alt="" width="24" height="24"><span>TeleCloud <i class="beta-tag">BETA</i></span></div>
+    <p>Made by a solo developer for people who care about their music.</p>
+    <p class="links"><a href="../privacy/">Privacy</a><a href="../telegram/">TeleCloud and Telegram</a><a href="../security/">Security</a><a href="https://github.com/MinhHaiDeveloper/telecloud">GitHub</a></p>
+    <p class="muted">TeleCloud is an unofficial app that uses the Telegram API. It is not affiliated with Telegram.</p>
+  </footer>
+
+  <script src="cadence.js" defer></script>
+</body>
+</html>
