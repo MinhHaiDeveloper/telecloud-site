@@ -539,3 +539,45 @@ td.us.y { color: var(--accent); }
 .foot .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
 .foot .links a { color: var(--text-2); }
 .foot .links a:hover { color: var(--text); }
+
+/* Beta page, "And the small things": six steps, three of them drawn here instead of screenshots */
+.story.small { height: 420vh; }
+.story.small .story-sticky { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 56px; }
+.r-stage .shot.sq, .r-mobile .shot.sq { width: min(320px, 100%); }
+.vu-mock, .ss-mock, .ln-mock { width: min(520px, 100%); border-radius: 18px; background: var(--surface); border: 1px solid var(--border-2); box-shadow: var(--shadow); }
+.vu-mock { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 18px; }
+.vu-face { position: relative; border-radius: 12px; padding: 10px 8px 4px; background: linear-gradient(#f4ecd8, #e6dbbd); box-shadow: inset 0 2px 10px rgba(0, 0, 0, .25); }
+.vu-face svg { display: block; width: 100%; height: auto; }
+.vu-face b { position: absolute; right: 12px; bottom: 8px; font-size: 12px; color: #5a4a2a; }
+.vu-arc, .vu-red { fill: none; stroke-width: 3; }
+.vu-arc { stroke: #3a3020; }
+.vu-red { stroke: #c8341e; stroke-width: 5; }
+.vu-ticks line { stroke: #3a3020; stroke-width: 2; }
+.vu-face text { font: 700 16px var(--mono, monospace); fill: #3a3020; text-anchor: middle; }
+.vu-face circle { fill: #2a2418; }
+.vu-needle { stroke: #1d1a14; stroke-width: 2.2; stroke-linecap: round; transform-origin: 100px 104px; animation: vuSwing 1.7s ease-in-out infinite alternate; }
+.vu-needle.n1 { animation-duration: 1.35s; animation-delay: -.4s; }
+@keyframes vuSwing { 0% { transform: rotate(-42deg); } 35% { transform: rotate(-8deg); } 60% { transform: rotate(-24deg); } 100% { transform: rotate(18deg); } }
+.ss-mock, .ln-mock { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.ss-box { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 12px; background: var(--surface-hover); border: 1px solid var(--border-2); }
+.ss-box svg { width: 18px; height: 18px; fill: none; stroke: var(--text-2); stroke-width: 2; }
+.ss-box span { display: inline-flex; align-items: center; gap: 2px; font-weight: 600; }
+.ss-box i { width: 2px; height: 18px; background: var(--accent); animation: ssCaret 1s steps(2, jump-none) infinite; }
+@keyframes ssCaret { 50% { opacity: 0; } }
+.ss-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.ss-chips span { padding: 5px 11px; border-radius: 99px; font-size: 13px; color: var(--text-2); border: 1px solid var(--border-2); }
+.ss-chips span.on { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.ss-row, .ln-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; background: var(--surface-hover); }
+.ss-row small, .ln-row small { color: var(--text-3); font-size: 13px; }
+.ss-row.lit { box-shadow: 0 0 0 2px var(--accent) inset; }
+.ln-head { font-weight: 700; color: var(--text-2); font-size: 14px; padding: 0 2px 4px; }
+.ln-row.on { box-shadow: 0 0 0 2px var(--accent) inset; }
+.ln-row.on small { color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .vu-needle, .ss-box i { animation: none; } }
+@media (max-width: 900px) {
+  .story.small .story-sticky { grid-template-columns: minmax(0, 1fr); }
+  .story.small .steps-copy { min-height: 0; }
+  .story.small .sc { position: static; opacity: 1; transform: none; margin-bottom: 44px; pointer-events: auto; }
+  .story.small .dots { display: none; }
+  .story.small { height: auto; }
+}

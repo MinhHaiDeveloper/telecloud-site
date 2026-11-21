@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TeleCloud Beta — Control your music from any screen</title>
-  <meta name="description" content="TeleCloud Beta: turn your phone, tablet or another computer into a remote for the music on your PC, shape the sound, sing along word by word, and let smart playlists fill themselves. Bit-perfect until you change it.">
+  <meta name="description" content="TeleCloud Beta: a remote on any screen for the music on your PC, sound shaping you can see, lyrics word by word worked out on your computer, and your own encrypted backup to Telegram or a folder. Bit-perfect until you change it.">
   <meta name="theme-color" content="#0b0b0d">
   <link rel="canonical" href="https://telecloud-music.pages.dev/beta/">
   <meta property="og:type" content="website">
@@ -44,9 +44,9 @@
       <a href="#remote">Remote</a>
       <a href="#sound">Sound</a>
       <a href="#words">Lyrics</a>
-      <a href="#library">Playlists</a>
-      <a href="#controls">Controls</a>
-      <a href="#anywhere">Any screen</a>
+      <a href="#backup">Backup</a>
+      <a href="#library">Library</a>
+      <a href="#more">More</a>
     </nav>
     <a class="btn-primary sm" href="#download">Download</a>
   </header>
@@ -60,11 +60,11 @@
       <p class="lead reveal">TeleCloud Beta turns your phone, tablet or another computer into a remote for the music playing on your PC. Nothing to install on it, and the sound never leaves your DAC.</p>
       <div class="hero-badges reveal">
         <span class="badge b-cloud">Remote</span>
-        <span class="badge b-ok">Flex Mode</span>
-                <span class="badge b-hires">Sound</span>
+        <span class="badge b-hires">Sound</span>
         <span class="badge b-cached">Word by word</span>
-        <span class="badge b-ok">Smart playlists</span>
-        <span class="badge b-local">Wake-on-LAN</span>
+        <span class="badge b-ok">VU meters</span>
+        <span class="badge b-local">Folder backup</span>
+        <span class="badge b-ok">Your data</span>
       </div>
       <div class="hero-shot hero-pair" data-scroll="hero">
         <div class="window">
@@ -215,17 +215,17 @@
       </div>
     </section>
 
-    <!-- Word by word -->
+    <!-- Lyrics: word by word, Cadence, floating -->
     <section class="split" id="words">
       <div class="split-copy reveal">
         <p class="eyebrow">Sing along</p>
-        <h2>Lyrics that light up word by word.</h2>
-        <p>Lyrics with a time for each word light up as they are sung: in the side panel, full screen, the floating lyrics and the remote. Behind the seek bar, the track's waveform shows where the quiet and the loud parts are.</p>
+        <h2>Word by word, even when the file only has lines.</h2>
+        <p>Words light up as they are sung: in Now Playing, the floating lyrics and the remote. NetEase, QQ Music and Kugou give their word-by-word lyrics, and for the rest Cadence works the timing out on your computer, from the song itself. Nothing is sent anywhere.</p>
         <ul class="ticks">
+          <li>Cadence is optional: download its models only if you want them</li>
+          <li>Fix any word by dragging it, or tap Space as it is sung</li>
+          <li>Floating lyrics stay on top of every app, clicks go through when locked</li>
           <li>Enhanced LRC and TTML, as other players use them</li>
-          <li>Word timings as JSON: paste or open them in the lyrics editor</li>
-          <li>The waveform is worked out once per file, then kept</li>
-          <li>Plain and line-synced lyrics work as before</li>
         </ul>
       </div>
       <div class="split-shot reveal">
@@ -236,57 +236,34 @@
       </div>
     </section>
 
-    <!-- Floating lyrics -->
-    <section class="split rev" id="floating">
+    <!-- Backup: Telegram or a folder, and your data -->
+    <section class="split rev" id="backup">
       <div class="split-copy reveal">
-        <p class="eyebrow">Over everything</p>
-        <h2>The lyrics stay on top while you work.</h2>
-        <p>Floating lyrics: a small see-through window with the line being sung and the next, over every other app. Drag it anywhere and size it; lock it and your clicks go straight through to what is under it.</p>
+        <p class="eyebrow">Your own backup</p>
+        <h2>No server. No subscription. Encrypted before it leaves.</h2>
+        <p>Back up your library to your own Telegram, or now to a folder: a second drive, a share on your NAS, or the folder your OneDrive or Google Drive app keeps in step. Encrypted on your PC with your recovery key, streamed back to any computer with seeking.</p>
         <ul class="ticks">
-          <li>Opens from the lyrics card, the tray or Settings › Appearance</li>
-          <li>Never takes the keyboard from what you are doing</li>
-          <li>Remembers where you left it</li>
+          <li>No Telegram account needed for a folder; move tracks between the two either way</li>
+          <li>Restore on a new computer: the library comes back with tags, lyrics and covers</li>
+          <li>Export your history, playlists and favourites to plain files; nothing keeps you here</li>
+          <li>Import adds, never replaces, and missing tracks join their playlists when they arrive</li>
         </ul>
       </div>
       <div class="split-shot reveal">
-        <div class="window">
-          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
-          <img src="../assets/beta/floating.webp" alt="Floating lyrics over the TeleCloud window" loading="lazy" width="1920" height="1200">
-        </div>
+        <img src="../assets/storages.webp" alt="TeleCloud settings listing two storages and the backup controls" loading="lazy" width="1920" height="1200">
       </div>
     </section>
 
-    <!-- Liquid cover -->
-    <section class="split" id="liquid">
+    <!-- Library: smart playlists, history, folders -->
+    <section class="split" id="library">
       <div class="split-copy reveal">
-        <p class="eyebrow">A new album</p>
-        <h2>The next cover floods in, and the room follows.</h2>
-        <p>When the music moves on to another album, its cover floods in as a growing circle, with rings running through both pictures and the colours splitting at the rim. Behind Now Playing, the cover's colours drift like ink in water, swirl out with the change, then slowly settle.</p>
+        <p class="eyebrow">Your library, put to use</p>
+        <h2>Playlists that fill themselves. A year ago, today.</h2>
+        <p>Write a few rules (artist, genre, quality, plays, last played, favourite, on this PC or in TeleCloud) and a smart playlist keeps itself up to date. Discover brings back your most played and what you were listening to on this day in earlier years.</p>
         <ul class="ticks">
-          <li>Drawn on the graphics card: smooth in full screen too</li>
-          <li>Open Now Playing half-way and it carries on from there</li>
-          <li>Dark covers give their own colours, not a black screen</li>
-          <li>Within one album it simply changes; Reduce motion turns it off</li>
-        </ul>
-      </div>
-      <div class="split-shot reveal">
-        <div class="window">
-          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
-          <img src="../assets/beta/liquid-np.webp" alt="Now Playing with one cover flooding in over another, the backdrop in both their colours" loading="lazy" width="1920" height="1200">
-        </div>
-      </div>
-    </section>
-
-    <!-- Smart playlists -->
-    <section class="split rev" id="library">
-      <div class="split-copy reveal">
-        <p class="eyebrow">Playlists that fill themselves</p>
-        <h2>Write the rules once. It keeps itself up to date.</h2>
-        <p>A smart playlist is a few rules: artist, genre, year, quality, format, MQA, plays, last played, date added, favourite, on this PC or in TeleCloud. Match all or any, pick an order and a limit, and it changes by itself as you add music and play it.</p>
-        <ul class="ticks">
-          <li>Shows on the remote like any playlist</li>
-          <li>Import and export .m3u8 and .m3u; tracks not found are listed, never dropped quietly</li>
-          <li>Play next keeps the order you add things in, and a track can play 2, 3 or 5 times in a row</li>
+          <li>Folders: your library as it sits on disk, play a whole folder</li>
+          <li>.m3u8 in and out; tracks not found are listed, never dropped quietly</li>
+          <li>Built from your own play history, on your computer</li>
         </ul>
       </div>
       <div class="split-shot reveal">
@@ -297,114 +274,55 @@
       </div>
     </section>
 
-    <!-- Listening history -->
-    <section class="split" id="history">
-      <div class="split-copy reveal">
-        <p class="eyebrow">Your listening, put to use</p>
-        <h2>What you play most, and what you played a year ago today.</h2>
-        <p>Discover shows your most played this week, month or year, ready to play again. On this day brings back what you were listening to around this date in earlier years, one card per year.</p>
-        <ul class="ticks">
-          <li>The Dashboard has both, and a range of dates you pick</li>
-          <li>Built from your own play history, on your computer</li>
-        </ul>
-      </div>
-      <div class="split-shot reveal">
-        <div class="window">
-          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
-          <img src="../assets/beta/history.webp" alt="Discover with Most played and On this day" loading="lazy" width="1920" height="1200">
+    <!-- The small things: a scroll story -->
+    <section class="story small" id="more" data-scroll="more" data-steps="6">
+      <div class="story-sticky">
+        <div class="story-copy">
+          <p class="eyebrow">And the small things</p>
+          <div class="steps-copy">
+            <div class="sc" data-s="0">
+              <h2>VU meters you can watch.</h2>
+              <p>Two analogue needles in Now Playing, in four faces, one in the colours of your theme. Set 0 VU where you like, and a peak light warns near full scale. They only watch: bit-perfect stays bit-perfect.</p>
+              <figure class="r-mobile"><div class="vu-mock" aria-hidden="true"><div class="vu-face"><svg viewBox="0 0 200 118"><path class="vu-arc" d="M22 100 A82 82 0 0 1 150 33"/><path class="vu-red" d="M150 33 A82 82 0 0 1 178 100"/><g class="vu-ticks"><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-50 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-35 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-20 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-5 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(10 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(25 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(40 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(50 100 104)"/></g><text x="100" y="78">VU</text><line class="vu-needle n0" x1="100" y1="104" x2="100" y2="24"/><circle cx="100" cy="104" r="5"/></svg><b>L</b></div><div class="vu-face"><svg viewBox="0 0 200 118"><path class="vu-arc" d="M22 100 A82 82 0 0 1 150 33"/><path class="vu-red" d="M150 33 A82 82 0 0 1 178 100"/><g class="vu-ticks"><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-50 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-35 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-20 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-5 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(10 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(25 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(40 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(50 100 104)"/></g><text x="100" y="78">VU</text><line class="vu-needle n1" x1="100" y1="104" x2="100" y2="24"/><circle cx="100" cy="104" r="5"/></svg><b>R</b></div></div></figure>
+            </div>
+            <div class="sc" data-s="1">
+              <h2>The next cover floods in.</h2>
+              <p>A new album's cover floods in as a growing circle, and the backdrop behind Now Playing drifts in its colours like ink in water, then settles.</p>
+              <figure class="r-mobile"><img class="shot" src="../assets/beta/liquid-np.webp" alt="Now Playing with one cover flooding in over another" loading="lazy" width="1920" height="1200"></figure>
+            </div>
+            <div class="sc" data-s="2">
+              <h2>Media keys. A sleep timer.</h2>
+              <p>Your keyboard's media keys, the Windows flyout and lock screen, the taskbar and the tray. Fall asleep to an album: minutes, the end of a track or the album, and the last seconds fade out.</p>
+              <figure class="r-mobile"><img class="shot sq" src="../assets/beta/sleep-menu.webp" alt="The sleep timer menu" loading="lazy" width="373" height="372"></figure>
+            </div>
+            <div class="sc" data-s="3">
+              <h2>Settings that find themselves.</h2>
+              <p>Type a word in Settings, or pick Bit-perfect, DSD or Lyrics, and every matching setting shows from all the tabs. Pick one and Settings opens right there.</p>
+              <figure class="r-mobile"><div class="ss-mock" aria-hidden="true"><div class="ss-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>bit<i></i></span></div><div class="ss-chips"><span class="on">Bit-perfect</span><span>DSD</span><span>Lossless &amp; hi-res</span><span>Lyrics</span></div><div class="ss-row lit"><b>Exclusive mode</b><small>Playback</small></div><div class="ss-row"><b>Bit depth limit</b><small>Playback</small></div><div class="ss-row"><b>Release the device when paused</b><small>Playback</small></div></div></figure>
+            </div>
+            <div class="sc" data-s="4">
+              <h2>Any screen, its own layout.</h2>
+              <p>The remote gives a phone tabs, a tablet two columns and a browser on another PC three. TeleCloud keeps the PC awake while it plays, and shows how to wake it with Wake-on-LAN.</p>
+              <figure class="r-mobile"><img class="shot" src="../assets/beta/remote-desktop.webp" alt="The remote in a browser on another computer" loading="lazy" width="2880" height="1800"></figure>
+            </div>
+            <div class="sc" data-s="5">
+              <h2>Ready for your language.</h2>
+              <p>Every text in TeleCloud, the tray and the remote can be translated, and changes in place without a restart. English is in the app today; translators are welcome on GitHub.</p>
+              <figure class="r-mobile"><div class="ln-mock" aria-hidden="true"><div class="ln-head">Language of the app</div><div class="ln-row on"><b>English</b><small>In the app</small></div><div class="ln-row"><b>Tiếng Việt</b><small>Open for translators</small></div><div class="ln-row"><b>中文</b><small>Open for translators</small></div><div class="ln-row"><b>日本語</b><small>Open for translators</small></div></div></figure>
+            </div>
+          </div>
+          <div class="dots" aria-hidden="true"><i data-s="0"></i><i data-s="1"></i><i data-s="2"></i><i data-s="3"></i><i data-s="4"></i><i data-s="5"></i></div>
         </div>
-      </div>
-    </section>
-
-    <!-- Folders -->
-    <section class="split rev" id="folders">
-      <div class="split-copy reveal">
-        <p class="eyebrow">Your folders, as they are</p>
-        <h2>Browse by folder, play a whole one.</h2>
-        <p>For music kept by folder: Folders shows your library the way it sits on disk, each folder with its tracks counted, and plays or shuffles a whole folder with everything under it.</p>
-      </div>
-      <div class="split-shot reveal">
-        <div class="window">
-          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
-          <img src="../assets/beta/folders.webp" alt="The Folders page with four artist folders" loading="lazy" width="1920" height="1200">
+        <div class="story-visual">
+          <div class="r-stage">
+            <figure data-s="0"><div class="vu-mock" aria-hidden="true"><div class="vu-face"><svg viewBox="0 0 200 118"><path class="vu-arc" d="M22 100 A82 82 0 0 1 150 33"/><path class="vu-red" d="M150 33 A82 82 0 0 1 178 100"/><g class="vu-ticks"><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-50 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-35 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-20 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-5 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(10 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(25 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(40 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(50 100 104)"/></g><text x="100" y="78">VU</text><line class="vu-needle n0" x1="100" y1="104" x2="100" y2="24"/><circle cx="100" cy="104" r="5"/></svg><b>L</b></div><div class="vu-face"><svg viewBox="0 0 200 118"><path class="vu-arc" d="M22 100 A82 82 0 0 1 150 33"/><path class="vu-red" d="M150 33 A82 82 0 0 1 178 100"/><g class="vu-ticks"><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-50 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-35 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-20 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(-5 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(10 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(25 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(40 100 104)"/><line x1="100" y1="22" x2="100" y2="30" transform="rotate(50 100 104)"/></g><text x="100" y="78">VU</text><line class="vu-needle n1" x1="100" y1="104" x2="100" y2="24"/><circle cx="100" cy="104" r="5"/></svg><b>R</b></div></div></figure>
+            <figure data-s="1"><img class="shot" src="../assets/beta/liquid-np.webp" alt="" loading="lazy" width="1920" height="1200"></figure>
+            <figure data-s="2"><img class="shot panel" src="../assets/beta/sleep-menu.webp" alt="" loading="lazy" width="373" height="372"></figure>
+            <figure data-s="3"><div class="ss-mock" aria-hidden="true"><div class="ss-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span>bit<i></i></span></div><div class="ss-chips"><span class="on">Bit-perfect</span><span>DSD</span><span>Lossless &amp; hi-res</span><span>Lyrics</span></div><div class="ss-row lit"><b>Exclusive mode</b><small>Playback</small></div><div class="ss-row"><b>Bit depth limit</b><small>Playback</small></div><div class="ss-row"><b>Release the device when paused</b><small>Playback</small></div></div></figure>
+            <figure data-s="4"><img class="shot" src="../assets/beta/remote-desktop.webp" alt="" loading="lazy" width="2880" height="1800"></figure>
+            <figure data-s="5"><div class="ln-mock" aria-hidden="true"><div class="ln-head">Language of the app</div><div class="ln-row on"><b>English</b><small>In the app</small></div><div class="ln-row"><b>Tiếng Việt</b><small>Open for translators</small></div><div class="ln-row"><b>中文</b><small>Open for translators</small></div><div class="ln-row"><b>日本語</b><small>Open for translators</small></div></div></figure>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Everyday controls -->
-    <section class="split" id="controls">
-      <div class="split-copy reveal">
-        <p class="eyebrow">Everyday controls</p>
-        <h2>Media keys, the Windows flyout, a sleep timer.</h2>
-        <p>Your keyboard's Play, Pause, Next and Previous keys work with TeleCloud in the tray, and the Windows media controls show the track, its cover and the buttons, even on the lock screen. Fall asleep to an album: the last ten seconds fade out.</p>
-        <ul class="ticks">
-          <li>Previous, Play and Next on the taskbar thumbnail and in the tray</li>
-          <li>Paused in Exclusive mode? Other apps can use the DAC</li>
-          <li>A soft fade on play and pause, never in a bit-perfect chain</li>
-          <li>Open music files from Explorer: they play at once</li>
-        </ul>
-      </div>
-      <div class="split-shot reveal">
-        <img class="sq small" src="../assets/beta/sleep-menu.webp" alt="The sleep timer: minutes, end of the track or album, or after a number of tracks" loading="lazy" width="373" height="372">
-      </div>
-    </section>
-
-    <!-- Calmer -->
-    <section class="split rev" id="calm">
-      <div class="split-copy reveal">
-        <p class="eyebrow">Room to breathe</p>
-        <h2>Put the panel away. Let the albums roll on.</h2>
-        <p>The side panel folds away with one button or Ctrl+J, and TeleCloud remembers. When an album ends, the artist's next one plays, or the one beside it in Albums, with no gap.</p>
-        <ul class="ticks">
-          <li>Reduce motion: buttons and pages change at once</li>
-          <li>Signal path in the side panel: Full, Compact or Off</li>
-          <li>Fresher quality tags in the light themes</li>
-          <li>Logs say what the sound settings do</li>
-        </ul>
-      </div>
-      <div class="split-shot reveal">
-        <div class="window">
-          <div class="window-bar"><span class="wt">TeleCloud Beta</span><i></i><i></i><i></i></div>
-          <img src="../assets/beta/panel-hidden.webp" alt="An album page with the side panel put away" loading="lazy" width="1920" height="1200">
-        </div>
-      </div>
-    </section>
-
-    <!-- Any screen -->
-    <section class="split" id="anywhere">
-      <div class="split-copy reveal">
-        <p class="eyebrow">Any screen, its own layout</p>
-        <h2>A tablet gets two columns. A computer, three.</h2>
-        <p>The same remote fits whatever opens it: tabs on a phone, now playing beside the queue on a tablet, output, queue and player side by side in a browser on another PC.</p>
-        <ul class="ticks">
-          <li>Follows the theme you use in TeleCloud</li>
-          <li>Tag, cover and artist picture changes show up straight away</li>
-          <li>Tracks only in TeleCloud stream as they do on the PC</li>
-          <li>Press and hold a long name to read it in full</li>
-        </ul>
-      </div>
-      <div class="split-shot reveal">
-        <div class="window">
-          <div class="window-bar"><span class="wt">TeleCloud Remote</span><i></i><i></i><i></i></div>
-          <img src="../assets/beta/remote-desktop.webp" alt="The remote in a browser on another computer" loading="lazy" width="2880" height="1800">
-        </div>
-      </div>
-    </section>
-
-    <!-- Keep awake -->
-    <section class="split rev" id="awake">
-      <div class="split-copy reveal">
-        <p class="eyebrow">Stays reachable</p>
-        <h2>No sleep in the middle of an album.</h2>
-        <p>Keep the PC awake while music plays, so the remote can always reach it. And if it does sleep, TeleCloud shows the steps and the MAC address to wake it from a phone with Wake-on-LAN.</p>
-        <ul class="ticks">
-          <li>Your PC's own name on every remote, or one you choose</li>
-          <li>View only for devices that should just watch</li>
-          <li>New key signs every device out at once</li>
-        </ul>
-      </div>
-      <div class="split-shot reveal">
-        <img src="../assets/beta/settings-remote.webp" alt="Settings › Remote with the keep awake and Wake-on-LAN options" loading="lazy" width="1470" height="975">
       </div>
     </section>
 
@@ -418,7 +336,7 @@
         <div class="card dl-card reveal" data-channel="beta">
           <span class="badge b-cloud">Beta</span>
           <h3>TeleCloud Beta</h3>
-          <p>Everything in TeleCloud, plus the remote, the Sound page, lyrics word by word, smart playlists, Folders, media keys and what comes next. Updates itself to each new beta.</p>
+          <p>Everything in TeleCloud, plus the remote, the Sound page, lyrics word by word with Cadence, VU meters, backup to a folder, export of your data and what comes next. Updates itself to each new beta.</p>
           <a class="btn-primary dl-btn" aria-disabled="true">Coming soon</a>
           <small class="dl-meta"></small>
         </div>
